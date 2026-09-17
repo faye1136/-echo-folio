@@ -1,0 +1,2951 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>费韵璇 | Faye - 个人品牌官网 & 简历</title>
+    <!-- 引入 JetBrains Mono 粗体与英文字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['Space Grotesk', 'ui-monospace', 'Menlo', 'monospace'],
+                        jetbrains: ['"JetBrains Mono"', 'ui-monospace', 'Menlo', 'monospace'],
+                        impact: ['Impact', 'Arial Black', 'Space Grotesk', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#FF5A1F',
+                            darkBg: '#0D0D0E',
+                            lightBg: '#F8F9FA',
+                            textDark: '#111111',
+                            textLight: '#F5F5F7',
+                            amberGlow: '#f59e0b',
+                            coralWarm: '#f43f5e',
+                            cyanTech: '#00F0FF',
+                            neonGreen: '#10b981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 隐藏滚动条 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* 纯净网格纸纹路背景 */
+        .grid-bg {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.025) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.025) 1px, transparent 1px);
+        }
+        .dark .grid-bg {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+        }
+
+        /* 细密科技网格背景 */
+        .tech-grid-pattern {
+            background-size: 24px 24px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        }
+
+        /* 天体光晕柔和呼吸微动 */
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.06); opacity: 0.8; }
+        }
+        .celestial-pulse {
+            animation: pulseGlow 4s ease-in-out infinite;
+            transform-origin: center center;
+        }
+
+        /* 天体穿梭流转容器平滑过渡 */
+        .celestial-node {
+            transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease-out;
+            will-change: transform, opacity;
+            pointer-events: none;
+        }
+
+        /* 高级 3D 凸起立体卡片动效 */
+        .campus-3d-card {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.35s ease;
+            will-change: transform, box-shadow;
+            transform: translateZ(0);
+        }
+        .campus-3d-card:hover {
+            transform: translateY(-6px) scale(1.008);
+            box-shadow: 0 20px 35px -10px rgba(255, 90, 31, 0.12),
+                        0 10px 20px -8px rgba(0, 0, 0, 0.06),
+                        0 0 0 1px rgba(255, 90, 31, 0.25);
+        }
+        .dark .campus-3d-card:hover {
+            box-shadow: 0 22px 40px -12px rgba(255, 90, 31, 0.18),
+                        0 12px 24px -8px rgba(0, 0, 0, 0.6),
+                        0 0 0 1px rgba(255, 90, 31, 0.35);
+        }
+
+        /* 3D 水平 180 度翻转卡片 */
+        .cert-flip-card {
+            perspective: 1000px;
+            height: 100%;
+        }
+        .cert-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .cert-flip-card:hover .cert-flip-inner,
+        .cert-flip-card.is-flipped .cert-flip-inner {
+            transform: rotateY(180deg);
+        }
+        .cert-face {
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        .cert-face-back {
+            position: absolute;
+            inset: 0;
+            transform: rotateY(180deg);
+            overflow: hidden;
+        }
+
+        /* AI 编程实战：中心线性渐变快速扩散与文字高亮切换 */
+        .project-interactive-row {
+            position: relative;
+            isolation: isolate;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-interactive-row::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #edf0f5 100%);
+            box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transform: scale(0.92);
+            transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.26s ease-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .project-interactive-row:hover::before,
+        .project-interactive-row.active::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 镂空线框数字 */
+        .stroke-num {
+            -webkit-text-stroke: 1.8px rgba(255, 255, 255, 0.9);
+            color: transparent;
+            font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-interactive-row:hover .stroke-num,
+        .project-interactive-row.active .stroke-num {
+            -webkit-text-stroke: 2px #111111;
+            transform: scale(1.04);
+            text-shadow: none;
+        }
+
+        /* 紧凑重磅大标题 */
+        .project-impact-title {
+            font-family: 'Impact', 'Arial Black', -apple-system, sans-serif;
+            letter-spacing: 0.02em;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        /* 触碰点位旋转弹出画框 */
+        .pop-card-anchor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 30;
+            overflow: visible;
+        }
+        .pop-image-frame {
+            position: absolute;
+            left: var(--touch-x, 65%);
+            top: var(--touch-y, 50%);
+            transform: translate(-50%, -50%) rotate(0deg) scale(0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        opacity 0.28s ease,
+                        visibility 0.28s;
+            will-change: transform, opacity;
+            pointer-events: none;
+        }
+        .project-interactive-row:hover .pop-image-frame,
+        .project-interactive-row.active .pop-image-frame {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) rotate(var(--rot-angle, -4.5deg)) scale(1);
+        }
+
+        /* 工具链横向无限双行滚轮动画 */
+        @keyframes marqueeScrollLeft {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+        @keyframes marqueeScrollRight {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        .marquee-track-left {
+            display: flex;
+            width: max-content;
+            animation: marqueeScrollLeft 28s linear infinite;
+            will-change: transform;
+        }
+        .marquee-track-right {
+            display: flex;
+            width: max-content;
+            animation: marqueeScrollRight 26s linear infinite;
+            will-change: transform;
+        }
+
+        /* 两侧超柔长过渡羽化遮罩 */
+        .marquee-mask {
+            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 3%, black 12%, black 88%, rgba(0,0,0,0.4) 97%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 3%, black 12%, black 88%, rgba(0,0,0,0.4) 97%, transparent 100%);
+        }
+
+        /* 微质感胶囊卡片 */
+        .tool-pill {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.65rem 1.15rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            box-shadow: 0 4px 14px -3px rgba(0, 0, 0, 0.05),
+                        0 1px 3px 0 rgba(0, 0, 0, 0.02),
+                        inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+            white-space: nowrap;
+            user-select: none;
+            flex-shrink: 0;
+            transition: border-color 0.3s ease;
+        }
+        .dark .tool-pill {
+            background: rgba(26, 26, 30, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* 全屏覆盖页通用过渡动画 */
+        .overlay-screen {
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.45s;
+            will-change: opacity, transform;
+        }
+        .overlay-screen.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: scale(0.985) translateY(14px);
+        }
+        .overlay-screen.is-visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: scale(1) translateY(0);
+        }
+
+        /* 终端 ASCII 矩阵发光文字增强与故障扫描线 */
+        .glow-tech-title {
+            text-shadow: 0 0 35px rgba(0, 240, 255, 0.65), 0 0 70px rgba(0, 240, 255, 0.35), 0 4px 20px rgba(0, 0, 0, 0.95);
+        }
+
+        /* 炫酷高频电子抖动动效 */
+        @keyframes cyberTitleVibrate {
+            0% {
+                transform: translate(0, 0);
+                text-shadow: 0 0 30px rgba(0, 240, 255, 0.8), 2px 0 rgba(0, 240, 255, 0.9), -2px 0 rgba(255, 45, 85, 0.7);
+            }
+            12% {
+                transform: translate(-1.8px, 1.2px) skewX(-0.4deg);
+                text-shadow: 0 0 35px rgba(0, 240, 255, 0.9), -2.2px -1px rgba(0, 240, 255, 0.95), 2.2px 1px rgba(255, 45, 85, 0.8);
+            }
+            24% {
+                transform: translate(1.6px, -1.2px) skewX(0.3deg);
+                text-shadow: 0 0 28px rgba(0, 240, 255, 0.75), 1.8px 0 rgba(0, 240, 255, 0.85), -1.8px 0 rgba(255, 45, 85, 0.7);
+            }
+            36% {
+                transform: translate(-1.4px, -1.6px);
+                text-shadow: 0 0 40px rgba(0, 240, 255, 0.95), -2.6px 0.5px rgba(0, 240, 255, 0.95), 2.6px -0.5px rgba(255, 45, 85, 0.85);
+            }
+            48% {
+                transform: translate(1.4px, 1.4px);
+            }
+            60% {
+                transform: translate(-1.2px, 0.8px) skewX(-0.3deg);
+                text-shadow: 0 0 30px rgba(0, 240, 255, 0.85), -1.8px 0 rgba(0, 240, 255, 0.9), 1.8px 0 rgba(255, 45, 85, 0.75);
+            }
+            72% {
+                transform: translate(1.8px, -0.8px) skewX(0.4deg);
+                text-shadow: 0 0 38px rgba(0, 240, 255, 0.95), 2.8px -0.8px rgba(0, 240, 255, 0.95), -2.8px 0.8px rgba(255, 45, 85, 0.8);
+            }
+            84% {
+                transform: translate(-0.8px, 1.6px);
+            }
+            94% {
+                transform: translate(1.2px, -0.6px);
+            }
+            100% {
+                transform: translate(0, 0);
+                text-shadow: 0 0 30px rgba(0, 240, 255, 0.8), 2px 0 rgba(0, 240, 255, 0.9), -2px 0 rgba(255, 45, 85, 0.7);
+            }
+        }
+
+        .cyber-vibrating-heading {
+            display: inline-block;
+            animation: cyberTitleVibrate 0.26s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, text-shadow;
+        }
+
+        /* 赛博 CRT 扫描线微妙质感 */
+        .cyber-scanlines {
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.35) 50%
+            ), linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.03),
+                rgba(0, 255, 0, 0.01),
+                rgba(0, 255, 0, 0.03)
+            );
+            background-size: 100% 3px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .glow-title {
+            text-shadow: 0 0 45px rgba(254, 215, 170, 0.35), 0 0 80px rgba(245, 158, 11, 0.2), 0 4px 16px rgba(0, 0, 0, 0.85);
+        }
+
+        /* 呼吸律动下滑指示器箭头 */
+        @keyframes gentleBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.85; }
+            50% { transform: translateY(8px); opacity: 0.4; }
+        }
+        .bounce-arrow {
+            animation: gentleBounce 2.2s ease-in-out infinite;
+        }
+
+        /* 通栏矢量标题容器：确保无间隙横向顶满画框 */
+        .full-width-title-svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        /* 图片彻底无缝填满画框：绝对定位贴合、消除一切边距空隙、适当剪裁 */
+        .full-image-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            display: block;
+        }
+        .full-image-contained {
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center center;
+            margin: 0 !important;
+            display: block !important;
+        }
+
+        /* ================= 3D 弧形环绕画廊核心样式 ================= */
+        .gallery-3d-scene {
+            perspective: 1200px;
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+            touch-action: pan-y pinch-zoom;
+        }
+
+        .gallery-3d-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .gallery-3d-carousel.is-dragging {
+            transition: none !important;
+        }
+
+        .gallery-3d-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            will-change: transform, opacity, filter;
+            transition: filter 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        /* 纯净高清悬浮立体阴影（移除所有橙色发光与描边） */
+        .gallery-3d-card.is-active-card {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 0, 0, 0.5);
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.7));
+        }
+
+        /* 适配打印导出 */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-padding {
+                padding: 1.5rem !important;
+            }
+            .print-break {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-[#0D0D0E] text-[#111111] dark:text-slate-100 min-h-screen font-sans transition-colors duration-300 grid-bg selection:bg-brand-orange selection:text-white">
+
+    <!-- 全局轻提示 Toast -->
+    <div id="toast-container" class="fixed top-5 left-1/2 -translate-x-1/2 z-[90] pointer-events-none flex flex-col gap-2 w-[90%] max-w-sm no-print"></div>
+
+    <!-- 全局图片无遮挡放大查看模态框 (Universal Image Lightbox) -->
+    <div id="global-image-lightbox" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl hidden flex-col items-center justify-between p-4 sm:p-8 no-scrollbar" onclick="closeGlobalLightbox()">
+        <!-- 顶栏控制 -->
+        <div class="w-full max-w-6xl flex items-center justify-between z-20 pb-3 border-b border-zinc-800" onclick="event.stopPropagation()">
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-brand-orange/20 text-brand-orange font-mono text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+                    <span id="global-lightbox-filename">DOCUMENT_PREVIEW</span>
+                </span>
+                <span id="global-lightbox-caption" class="text-xs sm:text-sm text-zinc-300 font-sans font-medium truncate max-w-[200px] sm:max-w-md"></span>
+            </div>
+            <button onclick="closeGlobalLightbox()" class="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-xs sm:text-sm font-mono text-white flex items-center gap-1.5 transition-colors cursor-pointer active:scale-95">
+                <span>关闭预览</span>
+                <span class="text-base font-light">✕</span>
+            </button>
+        </div>
+
+        <!-- 居中无裁切、完整显示的图片主体 -->
+        <div class="w-full flex-1 flex items-center justify-center py-4 overflow-hidden" onclick="event.stopPropagation()">
+            <img id="global-lightbox-img" src="" alt="预览大图" class="max-w-[96vw] max-h-[80vh] w-auto h-auto object-contain rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10" />
+        </div>
+
+        <!-- 底栏提示 -->
+        <div class="w-full text-center text-zinc-500 font-mono text-[11px] pb-2 select-none" onclick="event.stopPropagation()">
+            <span>[ ESC 键或点击外部任意处退出全屏预览 · 完整无遮挡展示 ]</span>
+        </div>
+    </div>
+
+    <!-- 头部顶栏：极简、高对比 -->
+    <header class="w-full bg-white/85 dark:bg-brand-darkBg/85 backdrop-blur-md border-b border-gray-100 dark:border-zinc-900 sticky top-0 z-40 transition-colors no-print">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="font-mono font-bold tracking-wider text-sm text-black dark:text-white">F_Y_X // PORTFOLIO</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <!-- 主题切换按钮 -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 hover:scale-105 transition-all" aria-label="Toggle Theme">
+                    <svg id="sun-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M18 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                    </svg>
+                    <svg id="moon-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <a href="#contact-section" class="text-xs font-bold font-mono border-b-2 border-black dark:border-white pb-0.5 hover:text-brand-orange hover:border-brand-orange transition-colors">GET IN TOUCH</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体区域 -->
+    <main class="max-w-5xl mx-auto px-6 pt-10 pb-20 print-padding space-y-12">
+        
+        <!-- 第一部分：技术状态栏 & 导出PDF按钮 -->
+        <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 print-break">
+            <div class="flex flex-wrap items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#111111] dark:bg-white text-white dark:text-black font-mono text-xs font-bold uppercase tracking-wider shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] animate-ping"></span>
+                    IDENTITY: FRESHMAN_V1.0
+                </span>
+                <span class="inline-flex items-center px-3 py-1.5 rounded border border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-[#111111] dark:text-gray-200 font-mono text-xs font-medium uppercase tracking-wider">
+                    INTEREST: AI_ENTHUSIAST
+                </span>
+            </div>
+            
+            <button onclick="window.print()" class="no-print inline-flex items-center gap-2 px-5 py-2.5 rounded bg-black dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-white text-white dark:text-black font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-95">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path>
+                </svg>
+                <span>导出 PDF</span>
+            </button>
+        </section>
+
+        <!-- 第二部分：巨幕标题、艺术头像与 Slogan -->
+        <section class="print-break !mt-3">
+            <div class="text-gray-400 dark:text-zinc-600 font-mono text-[10px] tracking-[0.35em] uppercase select-none mb-0.5">
+                P O R T F O L I O &nbsp; // &nbsp; V E R S I O N _ 1 . 0
+            </div>
+
+            <div class="flex flex-wrap items-end gap-3 sm:gap-4 relative leading-none">
+                <div class="flex items-end gap-0.5 select-none leading-[0.8]">
+                    <h1 class="text-[5rem] sm:text-8xl lg:text-[8rem] font-black tracking-tighter text-black dark:text-white leading-[0.8] pb-1">
+                        费韵璇
+                    </h1>
+                    <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-brand-orange mb-3 sm:mb-4 inline-block shrink-0"></span>
+                </div>
+
+                <!-- 云朵插画头像 -->
+                <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-white dark:border-zinc-900 shadow-xl bg-gradient-to-tr from-sky-400 to-blue-200 flex items-center justify-center shrink-0 mb-1">
+                    <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#5fa9f7" />
+                                <stop offset="100%" stop-color="#9adaff" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="50" fill="url(#skyGrad)"/>
+                        <g fill="#ffffff" opacity="0.95">
+                            <circle cx="35" cy="55" r="14" />
+                            <circle cx="52" cy="45" r="18" />
+                            <circle cx="68" cy="52" r="15" />
+                            <circle cx="48" cy="62" r="12" />
+                            <rect x="25" y="52" width="45" height="15" rx="7" />
+                        </g>
+                        <g fill="#ffffff" opacity="0.6">
+                            <circle cx="28" cy="42" r="10" />
+                            <circle cx="72" cy="45" r="11" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl lg:text-[2.6rem] font-black text-gray-700 dark:text-zinc-300 tracking-tight leading-none mt-1">
+                凡心所向。素履以往
+            </h2>
+        </section>
+
+        <!-- 第三部分：极简自我介绍 -->
+        <section class="max-w-3xl text-sm sm:text-base text-gray-600 dark:text-zinc-300 font-light leading-relaxed !mt-3.5 print-break">
+            佛山大学<strong class="font-extrabold text-black dark:text-white">大二生</strong>，是一个对 <strong class="font-extrabold text-black dark:text-white">AI 应用</strong>的狂热者，视觉艺术的追求者。正在探索 <strong class="font-extrabold text-brand-orange">AI 提效</strong> 与产品从体验到完整落地的协作极限。
+        </section>
+
+        <!-- 第四部分：极简灰色联系方式卡片 -->
+        <section class="p-6 rounded-2xl bg-[#F8F9FA] dark:bg-zinc-900/60 border border-gray-100 dark:border-zinc-900 print-break !mt-5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div onclick="copyToClipboard('19075306551', '手机号已复制！')" class="cursor-pointer group space-y-1">
+                    <div class="font-mono text-[10px] text-gray-400 dark:text-zinc-500 uppercase tracking-widest font-semibold">手机号</div>
+                    <div class="font-mono text-sm sm:text-base font-bold text-black dark:text-white group-hover:text-brand-orange transition-colors">
+                        19075306551
+                    </div>
+                </div>
+                <div onclick="copyToClipboard('ffjy1136', '微信号已复制！')" class="cursor-pointer group space-y-1">
+                    <div class="font-mono text-[10px] text-gray-400 dark:text-zinc-500 uppercase tracking-widest font-semibold">微信号</div>
+                    <div class="font-mono text-sm sm:text-base font-bold text-black dark:text-white group-hover:text-brand-orange transition-colors">
+                        ffjy1136
+                    </div>
+                </div>
+                <div onclick="copyToClipboard('1522642257@qq.com', '邮箱已复制！')" class="cursor-pointer group space-y-1">
+                    <div class="font-mono text-[10px] text-gray-400 dark:text-zinc-500 uppercase tracking-widest font-semibold">邮箱</div>
+                    <div class="font-mono text-sm sm:text-base font-bold text-black dark:text-white group-hover:text-brand-orange transition-colors">
+                        1522642257@qq.com
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 顺序第一：天体穿梭三板块 ================= -->
+        <section id="celestial-showcase" class="space-y-6 print-break pt-2">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2 border-b border-gray-200 dark:border-zinc-800">
+                <div class="flex items-center gap-2">
+                    <span class="text-brand-orange">✦</span>
+                    <h3 class="font-mono text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">PROJECT CAPABILITIES / 核心领域与经历</h3>
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-3 text-[11px] font-mono">
+                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gray-100 dark:bg-zinc-800 text-gray-600 dark:text-zinc-300">
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping"></span>
+                        <span class="hidden sm:inline">横向移动鼠标或滑动体验天体穿梭</span>
+                        <span class="sm:hidden">左右滑动卡片体验穿梭</span>
+                    </div>
+                    <button id="toggle-orbit-btn" onclick="toggleAutoOrbit()" class="px-2.5 py-1 rounded-full border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-gray-700 dark:text-zinc-300 hover:border-brand-orange hover:text-brand-orange transition-colors font-medium">
+                        <span id="orbit-status-dot" class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1"></span>
+                        <span id="orbit-btn-text">漫游模式: 开启</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 天体视差穿梭互动区域 -->
+            <div id="celestial-stage" class="relative grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 cursor-ew-resize select-none">
+                
+                <!-- 栏目 01：清晨雪景 - 点击跳转进入 AI+编程开发者 沉浸式覆盖页 -->
+                <div id="card-dawn" onclick="openAiDevModal()" class="card-item group relative rounded-[28px] overflow-hidden border border-sky-200/80 dark:border-zinc-800 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between min-h-[480px] p-7 sm:p-8 cursor-pointer ring-0 hover:ring-2 hover:ring-cyan-400/80">
+                    <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                        <svg class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="dawnSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#8ec7f5" />
+                                    <stop offset="45%" stop-color="#bce1fc" />
+                                    <stop offset="100%" stop-color="#e2f3ff" />
+                                </linearGradient>
+                                <radialGradient id="dawnSunGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#fff8d1" stop-opacity="1" />
+                                    <stop offset="35%" stop-color="#fef08a" stop-opacity="0.8" />
+                                    <stop offset="100%" stop-color="#fef08a" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            <rect width="400" height="600" fill="url(#dawnSky)"/>
+                            <path d="M 20 120 Q 50 100 80 120 Q 110 95 140 120 L 140 150 L 20 150 Z" fill="#ffffff" opacity="0.45"/>
+                            <path d="M 260 110 Q 300 85 340 110 Q 370 90 400 110 L 400 140 L 260 140 Z" fill="#ffffff" opacity="0.45"/>
+
+                            <g id="body-dawn-sun" class="celestial-node">
+                                <circle class="celestial-pulse" cx="115" cy="110" r="62" fill="url(#dawnSunGlow)"/>
+                                <circle cx="115" cy="110" r="26" fill="#fff9c4"/>
+                                <circle cx="115" cy="110" r="22" fill="#ffffff" opacity="0.6"/>
+                            </g>
+
+                            <path d="M 90 320 Q 200 240 310 135 Q 360 135 420 220 L 420 380 L 90 380 Z" fill="#eff3f9"/>
+                            <path d="M 310 135 Q 280 230 250 330 L 420 330 L 420 220 Z" fill="#dce3f0"/>
+                            <path d="M 80 340 Q 180 270 270 280 Q 330 270 410 300 L 410 360 L 80 360 Z" fill="#8cb78a"/>
+                            <path d="M -20 350 Q 80 300 210 360 Q 320 410 420 370 L 420 620 L -20 620 Z" fill="#ffffff"/>
+                            <path d="M 40 380 Q 150 380 210 440 Q 140 470 50 420 Z" fill="#8cb9ee"/>
+                            <path d="M -20 420 Q 110 390 200 480 Q 310 450 420 470 L 420 620 L -20 620 Z" fill="#fcfcfc"/>
+                            <path d="M 60 480 Q 190 470 260 550 L 420 560 L 420 620 L 60 620 Z" fill="#9ec5f2" opacity="0.5"/>
+                            <polygon points="215,355 205,395 225,395" fill="#203f36"/>
+                            <polygon points="215,355 208,375 222,375" fill="#ffffff"/>
+                            <polygon points="230,365 222,400 238,400" fill="#203f36"/>
+                            <polygon points="-10,210 -60,420 40,420" fill="#1b3930"/>
+                            <polygon points="-10,210 -40,320 20,320" fill="#f8fafc"/>
+                            <polygon points="-10,300 -65,490 45,490" fill="#1b3930"/>
+                            <polygon points="-10,300 -45,400 25,400" fill="#f8fafc"/>
+                            <polygon points="-10,400 -80,620 60,620" fill="#1b3930"/>
+                            <polygon points="-10,400 -55,510 35,510" fill="#f8fafc"/>
+                            <polygon points="410,130 350,330 450,330" fill="#224238"/>
+                            <polygon points="410,130 370,230 440,230" fill="#f8fafc"/>
+                            <polygon points="410,240 330,440 470,440" fill="#224238"/>
+                            <polygon points="410,240 360,340 450,340" fill="#f8fafc"/>
+                            <polygon points="410,350 310,620 490,620" fill="#224238"/>
+                            <polygon points="410,350 340,460 470,460" fill="#f8fafc"/>
+                        </svg>
+                    </div>
+
+                    <div class="absolute inset-0 bg-gradient-to-b from-sky-950/20 via-transparent to-slate-950/50 pointer-events-none"></div>
+
+                    <div class="relative z-10 font-mono text-xs sm:text-[13px] font-medium tracking-wider text-white/95 drop-shadow-sm flex items-center gap-1.5">
+                        <span class="font-bold">01</span>
+                        <span class="opacity-60 font-light">/</span>
+                        <span class="font-sans font-medium">人工智能开发</span>
+                    </div>
+
+                    <div class="relative z-10 mt-12 mb-auto space-y-1">
+                        <div class="flex items-center gap-2.5">
+                            <svg class="w-8 h-8 sm:w-[34px] sm:h-[34px] shrink-0 text-white fill-current drop-shadow-md" viewBox="0 0 32 32">
+                                <rect x="2" y="7" width="28" height="18" rx="9" fill="white"/>
+                                <circle cx="10.5" cy="16" r="2.8" fill="#1e293b"/>
+                                <circle cx="21.5" cy="16" r="2.8" fill="#1e293b"/>
+                            </svg>
+                            <h4 class="text-3xl sm:text-[34px] font-black tracking-tight leading-none text-white drop-shadow-md font-sans">
+                                AI+编程
+                            </h4>
+                        </div>
+                        <h4 class="text-3xl sm:text-[34px] font-black tracking-tight leading-none text-white drop-shadow-md pl-10 sm:pl-[42px] font-sans">
+                            开发者
+                        </h4>
+                    </div>
+
+                    <div class="relative z-10 pt-4">
+                        <div class="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-white group-hover:text-cyan-300 transition-all tracking-wide group-hover:translate-x-1 duration-300 drop-shadow-md">
+                            <span>探索项目库</span>
+                            <span class="text-base font-mono font-light leading-none">↗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 栏目 02：黄昏雪景 - 点击跳转进入 PPT设计者 沉浸式覆盖页 -->
+                <div id="card-sunset" onclick="openPptModal()" class="card-item group relative rounded-[28px] overflow-hidden border border-amber-200/80 dark:border-zinc-800 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between min-h-[480px] p-7 sm:p-8 cursor-pointer ring-0 hover:ring-2 hover:ring-amber-400/80">
+                    <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                        <svg class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sunsetSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#5a4e87" />
+                                    <stop offset="25%" stop-color="#916b9b" />
+                                    <stop offset="55%" stop-color="#c67a99" />
+                                    <stop offset="85%" stop-color="#f99f7d" />
+                                    <stop offset="100%" stop-color="#fdbb74" />
+                                </linearGradient>
+                                <radialGradient id="sunsetGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#fff8d1" stop-opacity="1" />
+                                    <stop offset="40%" stop-color="#fef08a" stop-opacity="0.85" />
+                                    <stop offset="80%" stop-color="#f97316" stop-opacity="0.4" />
+                                    <stop offset="100%" stop-color="#f97316" stop-opacity="0.4" />
+                                </radialGradient>
+                            </defs>
+                            <rect width="400" height="600" fill="url(#sunsetSky)"/>
+                            <circle cx="90" cy="50" r="1.5" fill="#ffffff" opacity="0.8"/>
+                            <circle cx="150" cy="40" r="1.8" fill="#ffffff" opacity="0.9"/>
+                            <circle cx="210" cy="55" r="1.5" fill="#ffffff" opacity="0.75"/>
+                            <path d="M 10 135 Q 45 115 80 135 Q 120 110 150 135 L 150 160 L 10 160 Z" fill="#f4c2d4" opacity="0.5"/>
+                            <path d="M 270 125 Q 310 95 350 125 Q 380 105 410 125 L 410 150 L 270 150 Z" fill="#f4c2d4" opacity="0.4"/>
+
+                            <g id="body-sunset-sun" class="celestial-node">
+                                <circle class="celestial-pulse" cx="118" cy="185" r="74" fill="url(#sunsetGlow)"/>
+                                <circle cx="118" cy="185" r="30" fill="#fef08a"/>
+                                <circle cx="118" cy="185" r="24" fill="#ffedd5" opacity="0.7"/>
+                            </g>
+
+                            <path d="M 90 320 Q 200 240 310 135 Q 360 135 420 220 L 420 380 L 90 380 Z" fill="#cdb9dc"/>
+                            <path d="M 310 135 Q 280 230 250 330 L 420 330 L 420 220 Z" fill="#7f759c"/>
+                            <path d="M 80 340 Q 180 270 270 280 Q 330 270 410 300 L 410 360 L 80 360 Z" fill="#4d6952"/>
+                            <path d="M -20 350 Q 80 300 210 360 Q 320 410 420 370 L 420 620 L -20 620 Z" fill="#fde375"/>
+                            <path d="M 40 380 Q 150 380 210 440 Q 140 470 50 420 Z" fill="#f98b7a" opacity="0.8"/>
+                            <path d="M -20 420 Q 110 390 200 480 Q 310 450 420 470 L 420 620 L -20 620 Z" fill="#fde68a"/>
+                            <path d="M 60 480 Q 190 470 260 550 L 420 560 L 420 620 L 60 620 Z" fill="#e2887a" opacity="0.7"/>
+                            <polygon points="215,355 205,395 225,395" fill="#213a30"/>
+                            <polygon points="215,355 208,375 222,375" fill="#fef08a"/>
+                            <polygon points="230,365 222,400 238,400" fill="#213a30"/>
+                            <polygon points="-10,210 -60,420 40,420" fill="#1f392f"/>
+                            <polygon points="-10,210 -40,320 20,320" fill="#fee283"/>
+                            <polygon points="-10,300 -65,490 45,490" fill="#1f392f"/>
+                            <polygon points="-10,300 -45,400 25,400" fill="#fee283"/>
+                            <polygon points="-10,400 -80,620 60,620" fill="#1f392f"/>
+                            <polygon points="-10,400 -55,510 35,510" fill="#fee283"/>
+                            <polygon points="410,130 350,330 450,330" fill="#223e34"/>
+                            <polygon points="410,130 370,230 440,230" fill="#fee283"/>
+                            <polygon points="410,240 330,440 470,440" fill="#223e34"/>
+                            <polygon points="410,240 360,340 450,340" fill="#fee283"/>
+                            <polygon points="410,350 310,620 490,620" fill="#223e34"/>
+                            <polygon points="410,350 340,460 470,460" fill="#fee283"/>
+                        </svg>
+                    </div>
+
+                    <div class="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-transparent to-slate-950/50 pointer-events-none"></div>
+
+                    <div class="relative z-10 font-mono text-xs sm:text-[13px] font-medium tracking-wider text-white/95 drop-shadow-sm flex items-center gap-1.5">
+                        <span class="font-bold">02</span>
+                        <span class="opacity-60 font-light">/</span>
+                        <span class="font-sans font-medium">视觉叙事与设计</span>
+                    </div>
+
+                    <div class="relative z-10 mt-12 mb-auto space-y-1">
+                        <div class="flex items-center gap-2.5">
+                            <svg class="w-8 h-8 sm:w-[34px] sm:h-[34px] shrink-0 text-white drop-shadow-md" viewBox="0 0 32 32" fill="none" stroke="currentColor">
+                                <rect x="3" y="4" width="26" height="24" rx="2" stroke-width="3" fill="none"/>
+                                <line x1="9" y1="21" x2="9" y2="16" stroke-width="3" stroke-linecap="square"/>
+                                <line x1="16" y1="21" x2="16" y2="11" stroke-width="3" stroke-linecap="square"/>
+                                <line x1="23" y1="21" x2="23" y2="14" stroke-width="3" stroke-linecap="square"/>
+                            </svg>
+                            <h4 class="text-3xl sm:text-[34px] font-black tracking-tight leading-none text-white drop-shadow-md font-sans">
+                                PPT
+                            </h4>
+                        </div>
+                        <h4 class="text-3xl sm:text-[34px] font-black tracking-tight leading-none text-white drop-shadow-md pl-10 sm:pl-[42px] font-sans">
+                            设计者
+                        </h4>
+                    </div>
+
+                    <div class="relative z-10 pt-4">
+                        <div class="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-white group-hover:text-amber-300 transition-all tracking-wide group-hover:translate-x-1 duration-300 drop-shadow-md">
+                            <span>查看设计作品集</span>
+                            <span class="text-base font-mono font-light leading-none">↗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 栏目 03：夜晚雪景 -->
+                <div id="card-night" class="card-item group relative rounded-[28px] overflow-hidden border border-indigo-200/80 dark:border-zinc-800 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between min-h-[480px] p-7 sm:p-8">
+                    <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                        <svg class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#081226" />
+                                    <stop offset="45%" stop-color="#122547" />
+                                    <stop offset="100%" stop-color="#1a3867" />
+                                </linearGradient>
+                                <radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.95" />
+                                    <stop offset="40%" stop-color="#e0f2fe" stop-opacity="0.35" />
+                                    <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.5" />
+                                </radialGradient>
+                            </defs>
+                            <rect width="400" height="600" fill="url(#nightSky)"/>
+                            <g fill="#ffffff">
+                                <circle cx="45" cy="40" r="1.5" opacity="0.9"/>
+                                <circle cx="85" cy="25" r="1.8" opacity="0.8"/>
+                                <circle cx="170" cy="30" r="1.2" opacity="0.85"/>
+                                <circle cx="215" cy="48" r="1.8" opacity="0.95"/>
+                                <circle cx="270" cy="28" r="1.5" opacity="0.75"/>
+                                <circle cx="330" cy="50" r="1.2" opacity="0.85"/>
+                                <circle cx="375" cy="35" r="1.8" opacity="0.9"/>
+                                <circle cx="190" cy="80" r="1.5" opacity="0.7"/>
+                                <circle cx="250" cy="75" r="1.2" opacity="0.8"/>
+                            </g>
+
+                            <g id="body-night-moon" class="celestial-node">
+                                <circle class="celestial-pulse" cx="120" cy="115" r="66" fill="url(#moonHalo)"/>
+                                <circle cx="120" cy="115" r="26" fill="#f8fafc"/>
+                                <circle cx="112" cy="110" r="4.5" fill="#e2e8f0" opacity="0.7"/>
+                                <circle cx="126" cy="107" r="3.5" fill="#e2e8f0" opacity="0.7"/>
+                                <circle cx="118" cy="122" r="5" fill="#e2e8f0" opacity="0.7"/>
+                            </g>
+
+                            <path d="M 90 320 Q 200 240 310 135 Q 360 135 420 220 L 420 380 L 90 380 Z" fill="#9cb4d5"/>
+                            <path d="M 310 135 Q 280 230 250 330 L 420 330 L 420 220 Z" fill="#465a7d"/>
+                            <path d="M 80 340 Q 180 270 270 280 Q 330 270 410 300 L 410 360 L 80 360 Z" fill="#283d4f"/>
+                            <path d="M -20 350 Q 80 300 210 360 Q 320 410 420 370 L 420 620 L -20 620 Z" fill="#edf4fc"/>
+                            <path d="M 40 380 Q 150 380 210 440 Q 140 470 50 420 Z" fill="#253e63"/>
+                            <path d="M -20 420 Q 110 390 200 480 Q 310 450 420 470 L 420 620 L -20 620 Z" fill="#f1f5f9"/>
+                            <path d="M 60 480 Q 190 470 260 550 L 420 560 L 420 620 L 60 620 Z" fill="#1b3456" opacity="0.75"/>
+                            <polygon points="215,355 205,395 225,395" fill="#101d28"/>
+                            <polygon points="215,355 208,375 222,375" fill="#dce7f6"/>
+                            <polygon points="230,365 222,400 238,400" fill="#101d28"/>
+                            <polygon points="-10,210 -60,420 40,420" fill="#0e1b25"/>
+                            <polygon points="-10,210 -40,320 20,320" fill="#e2ecf9"/>
+                            <polygon points="-10,300 -65,490 45,490" fill="#0e1b25"/>
+                            <polygon points="-10,300 -45,400 25,400" fill="#e2ecf9"/>
+                            <polygon points="-10,400 -80,620 60,620" fill="#0e1b25"/>
+                            <polygon points="-10,400 -55,510 35,510" fill="#e2ecf9"/>
+                            <polygon points="410,130 350,330 450,330" fill="#11212d"/>
+                            <polygon points="410,130 370,230 440,230" fill="#e2ecf9"/>
+                            <polygon points="410,240 330,440 470,440" fill="#11212d"/>
+                            <polygon points="410,240 360,340 450,340" fill="#e2ecf9"/>
+                            <polygon points="410,350 310,620 490,620" fill="#11212d"/>
+                            <polygon points="410,350 340,460 470,460" fill="#e2ecf9"/>
+                        </svg>
+                    </div>
+
+                    <div class="absolute inset-0 bg-gradient-to-b from-indigo-950/25 via-transparent to-slate-950/50 pointer-events-none"></div>
+
+                    <div class="relative z-10 font-mono text-xs sm:text-[13px] font-medium tracking-wider text-white/95 drop-shadow-sm flex items-center gap-1.5">
+                        <span class="font-bold">03</span>
+                        <span class="opacity-60 font-light">/</span>
+                        <span class="font-sans font-medium">经验与内容传播</span>
+                    </div>
+
+                    <div class="relative z-10 mt-12 mb-auto space-y-1">
+                        <div class="flex items-center gap-2.5">
+                            <svg class="w-8 h-8 sm:w-[34px] sm:h-[34px] shrink-0 text-white drop-shadow-md" viewBox="0 0 32 32" fill="none" stroke="currentColor">
+                                <rect x="3" y="7" width="17" height="18" rx="2" stroke-width="3" fill="none"/>
+                                <path d="M20 12 L29 7 L29 25 L20 20 Z" stroke-width="3" stroke-linejoin="round" fill="none"/>
+                            </svg>
+                            <h4 class="text-3xl sm:text-[34px] font-black tracking-tight leading-none text-white drop-shadow-md font-sans">
+                                自媒体
+                            </h4>
+                        </div>
+                        <h4 class="text-3xl sm:text-[34px] font-black tracking-tight leading-none text-white drop-shadow-md pl-10 sm:pl-[42px] font-sans">
+                            创作者
+                        </h4>
+                    </div>
+
+                    <div class="relative z-10 pt-4">
+                        <a href="#skills-section" class="inline-flex items-center gap-1.5 text-sm sm:text-base font-bold text-white hover:text-brand-orange transition-all tracking-wide group-hover:translate-x-1 duration-300 drop-shadow-md">
+                            <span>浏览发布内容</span>
+                            <span class="text-base font-mono font-light leading-none">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= 顺序第二：教育背景 ================= -->
+        <section id="education-section" class="print-break space-y-5 pt-4">
+            <div class="flex items-center gap-2">
+                <span class="text-brand-orange flex items-center justify-center">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                        <line x1="7" y1="9" x2="17" y2="9"></line>
+                        <line x1="7" y1="13" x2="17" y2="13"></line>
+                        <line x1="7" y1="17" x2="13" y2="17"></line>
+                    </svg>
+                </span>
+                <span class="text-brand-orange font-bold text-xs tracking-wider">教育背景</span>
+                <span class="text-gray-300 dark:text-zinc-700 font-mono text-xs">//</span>
+                <span class="text-gray-400 dark:text-zinc-500 font-mono text-xs tracking-widest uppercase">ACADEMIC_PARAMETERS</span>
+            </div>
+
+            <div class="flex items-baseline">
+                <h3 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-black dark:text-white leading-none">
+                    求学之路
+                </h3>
+                <span class="inline-block w-4 h-4 sm:w-5 sm:h-5 rounded-full border-[3.5px] border-brand-orange ml-1.5 align-baseline"></span>
+            </div>
+
+            <div class="relative overflow-hidden rounded-2xl bg-[#F8F9FA] dark:bg-zinc-900/60 border border-gray-100 dark:border-zinc-800/80 p-6 sm:p-10 shadow-sm transition-all">
+                <div class="absolute right-4 sm:right-16 top-1/2 -translate-y-1/2 w-48 sm:w-64 h-64 pointer-events-none select-none opacity-40 dark:opacity-10 text-gray-200 dark:text-white">
+                    <svg viewBox="0 0 100 100" class="w-full h-full fill-current" preserveAspectRatio="none">
+                        <polygon points="55,0 15,58 48,58 38,100 85,42 52,42" />
+                    </svg>
+                </div>
+
+                <div class="relative z-10 space-y-0 text-sm sm:text-base">
+                    <div class="flex items-center justify-between py-4 sm:py-5 border-b border-gray-200/70 dark:border-zinc-800/80">
+                        <span class="font-medium text-gray-400 dark:text-zinc-500 tracking-wider">院校</span>
+                        <span class="font-black text-black dark:text-white text-base sm:text-lg">佛山大学</span>
+                    </div>
+                    <div class="flex items-center justify-between py-4 sm:py-5 border-b border-gray-200/70 dark:border-zinc-800/80">
+                        <span class="font-medium text-gray-400 dark:text-zinc-500 tracking-wider">专业</span>
+                        <span class="font-black text-black dark:text-white text-base sm:text-lg">动物医学 (前5%)</span>
+                    </div>
+                    <div class="flex items-center justify-between py-4 sm:py-5 border-b border-gray-200/70 dark:border-zinc-800/80">
+                        <span class="font-medium text-gray-400 dark:text-zinc-500 tracking-wider">阶段</span>
+                        <span class="font-black text-black dark:text-white text-base sm:text-lg">大二</span>
+                    </div>
+                    <div class="flex items-center justify-between py-4 sm:py-5">
+                        <span class="font-medium text-gray-400 dark:text-zinc-500 tracking-wider">加权绩点 (GPA)</span>
+                        <span class="font-black text-black dark:text-white text-base sm:text-lg font-mono">3.69 / 5.0 (不止步于课堂)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 顺序第三：校园经历 ================= -->
+        <section id="campus-section" class="print-break space-y-5 pt-2">
+            <div class="flex items-center gap-2">
+                <span class="text-brand-orange flex items-center justify-center">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </span>
+                <span class="text-brand-orange font-bold text-xs tracking-wider">校园经历</span>
+                <span class="text-gray-300 dark:text-zinc-700 font-mono text-xs">//</span>
+                <span class="text-gray-400 dark:text-zinc-500 font-mono text-xs tracking-widest uppercase">CAMPUS_EXPERIENCE</span>
+            </div>
+
+            <div class="flex items-baseline">
+                <h3 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-black dark:text-white leading-none">
+                    躬行致远
+                </h3>
+                <span class="inline-block w-4 h-4 sm:w-5 sm:h-5 rounded-full border-[3.5px] border-brand-orange ml-1.5 align-baseline"></span>
+            </div>
+
+            <div class="flex flex-col gap-4 sm:gap-5">
+                <!-- 校园经历板块 01：第十九届先进机器人及仿真技术大赛国家二等奖 -->
+                <div class="campus-3d-card group relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#121214] border border-gray-100 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between space-y-4 cursor-pointer">
+                    <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-orange/0 to-transparent group-hover:via-brand-orange/70 transition-all duration-500 pointer-events-none"></div>
+
+                    <div class="space-y-3 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <span class="text-brand-orange text-base inline-block transform group-hover:scale-125 group-hover:rotate-45 transition-transform duration-500 ease-out">✦</span>
+                            <h4 class="font-black text-base sm:text-lg text-black dark:text-white tracking-tight group-hover:text-brand-orange dark:group-hover:text-brand-orange transition-colors duration-300">
+                                第十九届先进机器人及仿真技术大赛国家二等奖
+                            </h4>
+                        </div>
+                        <p class="text-xs sm:text-[13px] text-gray-700 dark:text-zinc-300 leading-relaxed pl-6">
+                            优化仿生鱼水域控制策略，借助AI调试代码，完成避障规划，解决仿真漂移不稳定问题。
+                        </p>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-gray-100 dark:border-zinc-800/80 text-[11px] font-mono text-gray-400 dark:text-zinc-500 tracking-widest uppercase relative z-10">
+                        COMPETITION &amp; ROBOTICS SIMULATION
+                    </div>
+                </div>
+
+                <!-- 校园经历板块 02：校团委科技部副部长 -->
+                <div class="campus-3d-card group relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#121214] border border-gray-100 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between space-y-4 cursor-pointer">
+                    <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-orange/0 to-transparent group-hover:via-brand-orange/70 transition-all duration-500 pointer-events-none"></div>
+
+                    <div class="space-y-3 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <span class="text-brand-orange text-base inline-block transform group-hover:scale-125 group-hover:rotate-45 transition-transform duration-500 ease-out">✦</span>
+                            <h4 class="font-black text-base sm:text-lg text-black dark:text-white tracking-tight group-hover:text-brand-orange dark:group-hover:text-brand-orange transition-colors duration-300">
+                                校团委科技部副部长
+                            </h4>
+                        </div>
+                        <p class="text-xs sm:text-[13px] text-gray-700 dark:text-zinc-300 leading-relaxed pl-6">
+                            协助统筹开展“挑战杯”大赛校级决赛，实现全环节零差错运行。
+                        </p>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-gray-100 dark:border-zinc-800/80 text-[11px] font-mono text-gray-400 dark:text-zinc-500 tracking-widest uppercase relative z-10">
+                        ACTIVITIES &amp; COORDINATION
+                    </div>
+                </div>
+
+                <!-- 校园经历板块 03：院团委组织部干事 -->
+                <div class="campus-3d-card group relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#121214] border border-gray-100 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between space-y-4 cursor-pointer">
+                    <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-orange/0 to-transparent group-hover:via-brand-orange/70 transition-all duration-500 pointer-events-none"></div>
+
+                    <div class="space-y-3 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <span class="text-brand-orange text-base inline-block transform group-hover:scale-125 group-hover:rotate-45 transition-transform duration-500 ease-out">✦</span>
+                            <h4 class="font-black text-base sm:text-lg text-black dark:text-white tracking-tight group-hover:text-brand-orange dark:group-hover:text-brand-orange transition-colors duration-300">
+                                院团委组织部干事
+                            </h4>
+                        </div>
+                        <p class="text-xs sm:text-[13px] text-gray-700 dark:text-zinc-300 leading-relaxed pl-6">
+                            对接团支部，审核整理团务资料，复盘工作经验并写会议纪要。
+                        </p>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-gray-100 dark:border-zinc-800/80 text-[11px] font-mono text-gray-400 dark:text-zinc-500 tracking-widest uppercase relative z-10">
+                        ORGANIZATION &amp; GOVERNANCE
+                    </div>
+                </div>
+
+                <!-- 校园经历板块 04：实验室助手 -->
+                <div class="campus-3d-card group relative overflow-hidden p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#121214] border border-gray-100 dark:border-zinc-800/80 shadow-sm flex flex-col justify-between space-y-4 cursor-pointer">
+                    <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-orange/0 to-transparent group-hover:via-brand-orange/70 transition-all duration-500 pointer-events-none"></div>
+
+                    <div class="space-y-3 relative z-10">
+                        <div class="flex items-center gap-2">
+                            <span class="text-brand-orange text-base inline-block transform group-hover:scale-125 group-hover:rotate-45 transition-transform duration-500 ease-out">✦</span>
+                            <h4 class="font-black text-base sm:text-lg text-black dark:text-white tracking-tight group-hover:text-brand-orange dark:group-hover:text-brand-orange transition-colors duration-300">
+                                实验室助手
+                            </h4>
+                        </div>
+                        <p class="text-xs sm:text-[13px] text-gray-700 dark:text-zinc-300 leading-relaxed pl-6">
+                            狗的遗传评估数据分析
+                        </p>
+                    </div>
+                    
+                    <div class="pt-3 border-t border-gray-100 dark:border-zinc-800/80 text-[11px] font-mono text-gray-400 dark:text-zinc-500 tracking-widest uppercase relative z-10">
+                        RESEARCH &amp; DATA ANALYSIS
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 顺序第四：AI 编程实战 ================= -->
+        <section id="projects-section" class="print-break space-y-6 pt-5">
+            <!-- 顶栏微标：准确还原图片1 -->
+            <div class="flex items-center gap-2">
+                <span class="w-3.5 h-3.5 text-brand-orange flex items-center justify-center">
+                    <svg class="w-3.5 h-3.5 fill-current text-brand-orange" viewBox="0 0 24 24">
+                        <polygon points="6,3 18,3 24,12 18,21 6,21 0,12" />
+                    </svg>
+                </span>
+                <span class="text-brand-orange font-black text-xs tracking-wider">PORTFOLIO</span>
+                <span class="text-gray-300 dark:text-zinc-700 font-mono text-xs font-bold">//</span>
+                <span class="text-gray-400 dark:text-zinc-500 font-sans text-xs tracking-wider font-semibold">作品展示</span>
+            </div>
+
+            <!-- 主标题：准确还原图片1中的空心细线橙环 -->
+            <div class="flex items-center gap-2.5">
+                <h3 class="text-4xl sm:text-5xl lg:text-[3.4rem] font-black tracking-tight text-black dark:text-white leading-none">
+                    AI 编程实战
+                </h3>
+                <span class="inline-block w-4 h-4 sm:w-5 sm:h-5 rounded-full border-[3px] sm:border-[3.5px] border-brand-orange shrink-0"></span>
+            </div>
+
+            <!-- 还原图片2：收窄横向宽度，大幅拉长垂直高度，呈现接近正方形的挺拔黑色大方盒 -->
+            <div class="relative w-full max-w-4xl mx-auto">
+                <div id="ai-projects-board" class="overflow-hidden rounded-[32px] sm:rounded-[42px] bg-[#101012] border border-zinc-800/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65)] text-white select-none">
+                    
+                    <!-- 项目 01：DYNAMIC VISUAL WEBSITE -->
+                    <div class="project-interactive-row group px-8 sm:px-12 lg:px-14 py-10 sm:py-12 lg:py-14 border-b border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                        <div class="relative z-10 flex items-center gap-6 sm:gap-10">
+                            <div class="stroke-num text-5xl sm:text-6xl lg:text-[4.6rem] select-none shrink-0 font-black">
+                                01
+                            </div>
+                            <div class="space-y-2.5">
+                                <h4 class="project-impact-title text-2xl sm:text-3xl lg:text-[2.35rem] text-white transition-colors duration-300 group-hover:text-[#00B2FE]">
+                                    DYNAMIC VISUAL WEBSITE
+                                </h4>
+                                <p class="text-xs sm:text-sm text-zinc-400 font-sans tracking-wide transition-colors duration-300 group-hover:text-zinc-800 font-normal">
+                                    Gemini+零前端代码基础 = 动态视觉网站
+                                </p>
+                            </div>
+                        </div>
+                        <div class="relative z-10 font-mono sm:font-sans text-xs sm:text-sm text-zinc-400 tracking-[0.25em] shrink-0 self-end sm:self-center font-medium pl-14 sm:pl-0 transition-colors duration-300 group-hover:text-zinc-900 group-hover:font-bold">
+                            2 0 2 6 . 3
+                        </div>
+
+                        <!-- 点位动态随机弹出画框容器 -->
+                        <div class="pop-card-anchor">
+                            <div class="pop-image-frame">
+                                <div class="pop-content-wrapper relative w-64 sm:w-80 aspect-[16/10] rounded-2xl overflow-hidden bg-[#18181b] border-2 border-white/90 dark:border-zinc-700 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col justify-between cursor-pointer">
+                                    <div class="w-full h-full full-image-container">
+                                        <img 
+                                            src="" 
+                                            alt="随机项目实录" 
+                                            loading="lazy" 
+                                            class="pop-dynamic-img full-image-contained" 
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
+                                        />
+                                        <div class="hidden w-full h-full flex-col justify-between text-left p-2.5">
+                                            <div class="flex items-center justify-between border-b border-zinc-800 pb-1.5">
+                                                <span class="pop-fallback-tag font-mono text-[10px] font-bold text-brand-orange">AI SNAPSHOT</span>
+                                                <span class="text-[9px] font-mono text-zinc-500">READY</span>
+                                            </div>
+                                            <div class="space-y-1 font-mono py-1">
+                                                <div class="h-2 w-3/4 bg-zinc-700/60 rounded"></div>
+                                                <div class="h-2 w-1/2 bg-[#00B2FE]/50 rounded"></div>
+                                            </div>
+                                            <div class="text-[9px] font-mono text-zinc-400">点击全屏查看原图</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 项目 02：AUTOMATED WORKFLOW -->
+                    <div class="project-interactive-row group px-8 sm:px-12 lg:px-14 py-10 sm:py-12 lg:py-14 border-b border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                        <div class="relative z-10 flex items-center gap-6 sm:gap-10">
+                            <div class="stroke-num text-5xl sm:text-6xl lg:text-[4.6rem] select-none shrink-0 font-black">
+                                02
+                            </div>
+                            <div class="space-y-2.5">
+                                <h4 class="project-impact-title text-2xl sm:text-3xl lg:text-[2.35rem] text-white transition-colors duration-300 group-hover:text-[#00B2FE]">
+                                    AUTOMATED WORKFLOW
+                                </h4>
+                                <p class="text-xs sm:text-sm text-zinc-400 font-sans tracking-wide transition-colors duration-300 group-hover:text-zinc-800 font-normal">
+                                    自动工作流——每日自动化抓取信息，推送飞书
+                                </p>
+                            </div>
+                        </div>
+                        <div class="relative z-10 font-mono sm:font-sans text-xs sm:text-sm text-zinc-400 tracking-[0.25em] shrink-0 self-end sm:self-center font-medium pl-14 sm:pl-0 transition-colors duration-300 group-hover:text-zinc-900 group-hover:font-bold">
+                            2 0 2 5 . 9
+                        </div>
+
+                        <!-- 点位动态随机弹出画框容器 -->
+                        <div class="pop-card-anchor">
+                            <div class="pop-image-frame">
+                                <div class="pop-content-wrapper relative w-64 sm:w-80 aspect-[16/10] rounded-2xl overflow-hidden bg-[#18181b] border-2 border-white/90 dark:border-zinc-700 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col justify-between cursor-pointer">
+                                    <div class="w-full h-full full-image-container">
+                                        <img 
+                                            src="" 
+                                            alt="随机项目实录" 
+                                            loading="lazy" 
+                                            class="pop-dynamic-img full-image-contained" 
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
+                                        />
+                                        <div class="hidden w-full h-full flex-col justify-between text-left p-2.5">
+                                            <div class="flex items-center justify-between border-b border-zinc-800 pb-1.5">
+                                                <span class="pop-fallback-tag font-mono text-[10px] font-bold text-brand-orange">AI SNAPSHOT</span>
+                                                <span class="text-[9px] font-mono text-zinc-500">READY</span>
+                                            </div>
+                                            <div class="space-y-1 font-mono py-1">
+                                                <div class="h-2 w-3/4 bg-zinc-700/60 rounded"></div>
+                                                <div class="h-2 w-1/2 bg-[#00B2FE]/50 rounded"></div>
+                                            </div>
+                                            <div class="text-[9px] font-mono text-zinc-400">点击全屏查看原图</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 项目 03：PERSONAL AI EMPLOYEE -->
+                    <div class="project-interactive-row group px-8 sm:px-12 lg:px-14 py-10 sm:py-12 lg:py-14 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                        <div class="relative z-10 flex items-center gap-6 sm:gap-10">
+                            <div class="stroke-num text-5xl sm:text-6xl lg:text-[4.6rem] select-none shrink-0 font-black">
+                                03
+                            </div>
+                            <div class="space-y-2.5">
+                                <h4 class="project-impact-title text-2xl sm:text-3xl lg:text-[2.35rem] text-white transition-colors duration-300 group-hover:text-[#00B2FE]">
+                                    PERSONAL AI EMPLOYEE
+                                </h4>
+                                <p class="text-xs sm:text-sm text-zinc-400 font-sans tracking-wide transition-colors duration-300 group-hover:text-zinc-800 font-normal">
+                                    系统提示词学习 + 固定提示词 = 私人AI雇员
+                                </p>
+                            </div>
+                        </div>
+                        <div class="relative z-10 font-mono sm:font-sans text-xs sm:text-sm text-zinc-400 tracking-[0.25em] shrink-0 self-end sm:self-center font-medium pl-14 sm:pl-0 transition-colors duration-300 group-hover:text-zinc-900 group-hover:font-bold">
+                            2 0 2 5 . 1 2
+                        </div>
+
+                        <!-- 点位动态随机弹出画框容器 -->
+                        <div class="pop-card-anchor">
+                            <div class="pop-image-frame">
+                                <div class="pop-content-wrapper relative w-64 sm:w-80 aspect-[16/10] rounded-2xl overflow-hidden bg-[#18181b] border-2 border-white/90 dark:border-zinc-700 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col justify-between cursor-pointer">
+                                    <div class="w-full h-full full-image-container">
+                                        <img 
+                                            src="" 
+                                            alt="随机项目实录" 
+                                            loading="lazy" 
+                                            class="pop-dynamic-img full-image-contained" 
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
+                                        />
+                                        <div class="hidden w-full h-full flex-col justify-between text-left p-2.5">
+                                            <div class="flex items-center justify-between border-b border-zinc-800 pb-1.5">
+                                                <span class="pop-fallback-tag font-mono text-[10px] font-bold text-brand-orange">AI SNAPSHOT</span>
+                                                <span class="text-[9px] font-mono text-zinc-500">READY</span>
+                                            </div>
+                                            <div class="space-y-1 font-mono py-1">
+                                                <div class="h-2 w-3/4 bg-zinc-700/60 rounded"></div>
+                                                <div class="h-2 w-1/2 bg-[#00B2FE]/50 rounded"></div>
+                                            </div>
+                                            <div class="text-[9px] font-mono text-zinc-400">点击全屏查看原图</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 顺序第五：AI技能与证书体系 & 双行横向动态滚轮工具链 ================= -->
+        <section id="skills-section" class="print-break space-y-5 pt-3">
+            <div class="flex items-center gap-2">
+                <span class="text-brand-orange flex items-center justify-center">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="6"></circle>
+                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                    </svg>
+                </span>
+                <span class="text-brand-orange font-bold text-xs tracking-wider">SKILLS &amp; CREDENTIALS</span>
+                <span class="text-gray-300 dark:text-zinc-700 font-mono text-xs">//</span>
+                <span class="text-gray-400 dark:text-zinc-500 font-mono text-xs tracking-widest uppercase">能力认证</span>
+            </div>
+
+            <div class="flex items-baseline">
+                <h3 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-black dark:text-white leading-none">
+                    工利其器
+                </h3>
+                <span class="inline-block w-4 h-4 sm:w-5 sm:h-5 rounded-full border-[3.5px] border-brand-orange ml-1.5 align-baseline"></span>
+            </div>
+
+            <!-- 三联认证卡片（支持触碰 180° 水平翻转至背面证书） -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                
+                <!-- 卡片 01：高级人工智能训练师 -> 背面 zs1.jpg -->
+                <div class="cert-flip-card group cursor-pointer" onclick="toggleCertFlip(this)">
+                    <div class="cert-flip-inner">
+                        <div class="cert-face campus-3d-card relative overflow-hidden p-6 rounded-2xl border border-gray-100 dark:border-zinc-800/80 bg-white dark:bg-[#121214] text-center space-y-2.5 shadow-sm flex flex-col justify-between">
+                            <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-orange/0 to-transparent group-hover:via-brand-orange/70 transition-all duration-500 pointer-events-none"></div>
+                            <div class="space-y-2">
+                                <div class="text-3xl filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">🥇</div>
+                                <h5 class="font-black text-sm sm:text-base text-black dark:text-white group-hover:text-brand-orange transition-colors">高级人工智能训练师</h5>
+                                <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed text-left sm:text-center">由阿里巴巴集团颁发的专业级资格，代表了提示词调优与工程落地应用能力。</p>
+                            </div>
+                            <div class="pt-3 border-t border-gray-100 dark:border-zinc-800/60 font-mono text-[10px] text-brand-orange tracking-wider font-semibold">
+                                ALIBABA CERTIFIED
+                            </div>
+                        </div>
+
+                        <!-- 背面：水平 180° 翻转展现 zs1.jpg 证书 -->
+                        <div class="cert-face cert-face-back rounded-2xl border border-brand-orange/40 bg-zinc-950 shadow-xl flex flex-col justify-between p-2.5 overflow-hidden group/back" onclick="event.stopPropagation(); openGlobalLightbox('zs1.jpg', '高级人工智能训练师 资格证书 (zs1.jpg)')">
+                            <div class="relative w-full flex-1 rounded-xl overflow-hidden bg-zinc-900 border border-white/10 flex items-center justify-center">
+                                <img 
+                                    src="zs1.jpg" 
+                                    alt="高级人工智能训练师证书 zs1.jpg" 
+                                    loading="lazy" 
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover/back:scale-105" 
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                />
+                                <div class="hidden w-full h-full flex-col justify-center items-center text-center p-4 space-y-1.5 font-mono">
+                                    <span class="text-2xl">🥇</span>
+                                    <span class="text-xs font-bold text-white">zs1.jpg</span>
+                                    <span class="text-[10px] text-zinc-400">高级人工智能训练师证书</span>
+                                    <span class="text-[9px] text-brand-orange">请将 zs1.jpg 置于同级目录</span>
+                                </div>
+                            </div>
+                            <div class="pt-2 px-1 flex items-center justify-between font-mono text-[10px] text-zinc-400">
+                                <span class="truncate font-sans font-medium text-white">高级人工智能训练师</span>
+                                <span class="text-brand-orange hover:underline shrink-0 pl-2">点击放大 ↗</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 卡片 02：大模型 Clouder (智能体) -> 背面 zs2.jpg -->
+                <div class="cert-flip-card group cursor-pointer" onclick="toggleCertFlip(this)">
+                    <div class="cert-flip-inner">
+                        <div class="cert-face campus-3d-card relative overflow-hidden p-6 rounded-2xl border border-gray-100 dark:border-zinc-800/80 bg-white dark:bg-[#121214] text-center space-y-2.5 shadow-sm flex flex-col justify-between">
+                            <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-orange/0 to-transparent group-hover:via-brand-orange/70 transition-all duration-500 pointer-events-none"></div>
+                            <div class="space-y-2">
+                                <div class="text-3xl filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">⚡</div>
+                                <h5 class="font-black text-sm sm:text-base text-black dark:text-white group-hover:text-brand-orange transition-colors">大模型 Clouder (智能体)</h5>
+                                <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed text-left sm:text-center">基于阿里云百炼平台搭建，熟悉 Agents 工作流架构设计与多模块接口集成。</p>
+                            </div>
+                            <div class="pt-3 border-t border-gray-100 dark:border-zinc-800/60 font-mono text-[10px] text-brand-orange tracking-wider font-semibold">
+                                ALIYUN CLOUDER
+                            </div>
+                        </div>
+
+                        <!-- 背面：水平 180° 翻转展现 zs2.jpg 证书 -->
+                        <div class="cert-face cert-face-back rounded-2xl border border-brand-orange/40 bg-zinc-950 shadow-xl flex flex-col justify-between p-2.5 overflow-hidden group/back" onclick="event.stopPropagation(); openGlobalLightbox('zs2.jpg', '大模型 Clouder 智能体证书 (zs2.jpg)')">
+                            <div class="relative w-full flex-1 rounded-xl overflow-hidden bg-zinc-900 border border-white/10 flex items-center justify-center">
+                                <img 
+                                    src="zs2.jpg" 
+                                    alt="大模型 Clouder 智能体证书 zs2.jpg" 
+                                    loading="lazy" 
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover/back:scale-105" 
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                />
+                                <div class="hidden w-full h-full flex-col justify-center items-center text-center p-4 space-y-1.5 font-mono">
+                                    <span class="text-2xl">⚡</span>
+                                    <span class="text-xs font-bold text-white">zs2.jpg</span>
+                                    <span class="text-[10px] text-zinc-400">大模型 Clouder 智能体证书</span>
+                                    <span class="text-[9px] text-brand-orange">请将 zs2.jpg 置于同级目录</span>
+                                </div>
+                            </div>
+                            <div class="pt-2 px-1 flex items-center justify-between font-mono text-[10px] text-zinc-400">
+                                <span class="truncate font-sans font-medium text-white">大模型智能体认证</span>
+                                <span class="text-brand-orange hover:underline shrink-0 pl-2">点击放大 ↗</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 卡片 03：大模型 Clouder (RAG) -> 背面 zs3.jpg -->
+                <div class="cert-flip-card group cursor-pointer" onclick="toggleCertFlip(this)">
+                    <div class="cert-flip-inner">
+                        <div class="cert-face campus-3d-card relative overflow-hidden p-6 rounded-2xl border border-gray-100 dark:border-zinc-800/80 bg-white dark:bg-[#121214] text-center space-y-2.5 shadow-sm flex flex-col justify-between">
+                            <div class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-orange/0 to-transparent group-hover:via-brand-orange/70 transition-all duration-500 pointer-events-none"></div>
+                            <div class="space-y-2">
+                                <div class="text-3xl filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">📚</div>
+                                <h5 class="font-black text-sm sm:text-base text-black dark:text-white group-hover:text-brand-orange transition-colors">大模型 Clouder (RAG)</h5>
+                                <p class="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed text-left sm:text-center">掌握检索增强生成及文档向量检索优化、工程重排调优的核心工程实践。</p>
+                            </div>
+                            <div class="pt-3 border-t border-gray-100 dark:border-zinc-800/60 font-mono text-[10px] text-brand-orange tracking-wider font-semibold">
+                                ALIYUN CLOUDER
+                            </div>
+                        </div>
+
+                        <!-- 背面：水平 180° 翻转展现 zs3.jpg 证书 -->
+                        <div class="cert-face cert-face-back rounded-2xl border border-brand-orange/40 bg-zinc-950 shadow-xl flex flex-col justify-between p-2.5 overflow-hidden group/back" onclick="event.stopPropagation(); openGlobalLightbox('zs3.jpg', '大模型 Clouder RAG证书 (zs3.jpg)')">
+                            <div class="relative w-full flex-1 rounded-xl overflow-hidden bg-zinc-900 border border-white/10 flex items-center justify-center">
+                                <img 
+                                    src="zs3.jpg" 
+                                    alt="大模型 Clouder RAG证书 zs3.jpg" 
+                                    loading="lazy" 
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover/back:scale-105" 
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                />
+                                <div class="hidden w-full h-full flex-col justify-center items-center text-center p-4 space-y-1.5 font-mono">
+                                    <span class="text-2xl">📚</span>
+                                    <span class="text-xs font-bold text-white">zs3.jpg</span>
+                                    <span class="text-[10px] text-zinc-400">大模型 Clouder RAG证书</span>
+                                    <span class="text-[9px] text-brand-orange">请将 zs3.jpg 置于同级目录</span>
+                                </div>
+                            </div>
+                            <div class="pt-2 px-1 flex items-center justify-between font-mono text-[10px] text-zinc-400">
+                                <span class="truncate font-sans font-medium text-white">大模型RAG认证</span>
+                                <span class="text-brand-orange hover:underline shrink-0 pl-2">点击放大 ↗</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 双行横向动态滚轮跑马灯工具链 -->
+            <div class="relative p-6 sm:p-8 rounded-[28px] border border-gray-200/80 dark:border-zinc-800 bg-[#F9FAFB]/90 dark:bg-[#121215]/90 backdrop-blur-xl shadow-[0_10px_35px_-10px_rgba(0,0,0,0.03)] overflow-hidden select-none">
+                <div class="absolute -top-16 left-1/4 w-96 h-36 bg-gradient-to-r from-orange-400/10 via-sky-400/10 to-transparent blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-16 right-1/4 w-96 h-36 bg-gradient-to-l from-brand-orange/10 via-purple-400/10 to-transparent blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 flex items-center justify-between pb-5 border-b border-gray-200/60 dark:border-zinc-800/60 mb-5">
+                    <div class="flex items-center gap-2.5">
+                        <div class="relative flex items-center justify-center w-5 h-5 rounded-full bg-brand-orange/10 text-brand-orange">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                            <span class="absolute w-3 h-3 rounded-full border border-brand-orange/40 animate-ping"></span>
+                        </div>
+                        <h4 class="font-mono text-xs font-black tracking-widest text-[#111111] dark:text-white uppercase">
+                            AI AGILITY &amp; COOPERATION <span class="text-gray-300 dark:text-zinc-700 mx-1">/</span> <span class="text-brand-orange">熟练工具链</span>
+                        </h4>
+                    </div>
+
+                    <div class="flex items-center gap-2 font-mono text-[10px] text-gray-400 dark:text-zinc-500">
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/[0.03] dark:bg-white/[0.05] border border-black/[0.05] dark:border-white/[0.08]">
+                            <span class="w-1 h-1 rounded-full bg-emerald-500"></span>
+                            9 ENGINES ACTIVE
+                        </span>
+                        <span class="uppercase tracking-widest hidden sm:inline">TOOLING ECOSYSTEM</span>
+                    </div>
+                </div>
+
+                <div class="relative w-full overflow-hidden marquee-mask py-2 space-y-3.5">
+                    <!-- 第一行：向左流动 -->
+                    <div class="marquee-track-left gap-3.5 flex items-center">
+                        <div class="flex items-center gap-3.5 shrink-0">
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10a10 10 0 0 1-10-10A10 10 0 0 1 12 2Z"></path>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">ChatGPT</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">LLM</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xs shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Gemini</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">MULTIMODAL</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                        <circle cx="11" cy="11" r="7"></circle>
+                                        <path d="m20 20-3.5-3.5"></path>
+                                        <path d="M9 11h4"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Deepseek</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">REASONING</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Qwen</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">FOUNDATION</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                                        <polyline points="4 17 10 11 4 5"></polyline>
+                                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Trae</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">AI IDE</span>
+                            </div>
+                        </div>
+
+                        <!-- 镜像副本确保平滑连续 -->
+                        <div class="flex items-center gap-3.5 shrink-0" aria-hidden="true">
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10a10 10 0 0 1-10-10A10 10 0 0 1 12 2Z"></path>
+                                        <path d="m9 12 2 2 4-4"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">ChatGPT</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">LLM</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center text-xs shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Gemini</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">MULTIMODAL</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                        <circle cx="11" cy="11" r="7"></circle>
+                                        <path d="m20 20-3.5-3.5"></path>
+                                        <path d="M9 11h4"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Deepseek</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">REASONING</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Qwen</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">FOUNDATION</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                                        <polyline points="4 17 10 11 4 5"></polyline>
+                                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Trae</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">AI IDE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 第二行：向右流动 -->
+                    <div class="marquee-track-right gap-3.5 flex items-center">
+                        <div class="flex items-center gap-3.5 shrink-0">
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4l7.07 17 2.51-7.39L21 11.07z"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Cursor</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">PAIR DEV</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-rose-500/10 dark:bg-rose-500/20 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="18" height="14" x="3" y="5" rx="3"></rect>
+                                        <path d="M7 15h4M15 15h2M9 9h.01M15 9h.01"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Cline Extension</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">AGENT</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2.5"></rect>
+                                        <path d="m10 9 5 3-5 3V9z"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">视频剪辑</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">CREATIVE</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-orange-600/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                                        <path d="M8 8h8M8 12h5M8 16h8"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Microsoft Office / PPT</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">VISUAL</span>
+                            </div>
+                        </div>
+
+                        <!-- 镜像副本 -->
+                        <div class="flex items-center gap-3.5 shrink-0" aria-hidden="true">
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4l7.07 17 2.51-7.39L21 11.07z"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Cursor</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">PAIR DEV</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-rose-500/10 dark:bg-rose-500/20 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="18" height="14" x="3" y="5" rx="3"></rect>
+                                        <path d="M7 15h4M15 15h2M9 9h.01M15 9h.01"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Cline Extension</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">AGENT</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2.5"></rect>
+                                        <path d="m10 9 5 3-5 3V9z"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">视频剪辑</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">CREATIVE</span>
+                            </div>
+
+                            <div class="tool-pill">
+                                <span class="w-6 h-6 rounded-full bg-orange-600/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+                                        <path d="M8 8h8M8 12h5M8 16h8"></path>
+                                    </svg>
+                                </span>
+                                <span class="font-sans font-semibold text-xs sm:text-sm text-gray-800 dark:text-gray-100 tracking-tight">Microsoft Office / PPT</span>
+                                <span class="text-[9px] font-mono font-medium px-1.5 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.08] text-gray-500 dark:text-zinc-400">VISUAL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 第七部分：极简联系尾部与在线留言 -->
+    <footer id="contact-section" class="border-t border-gray-100 dark:border-zinc-900 bg-gray-50 dark:bg-[#090D16] py-16 no-print">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-10">
+            <!-- 点击一键复制卡片 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div onclick="copyToClipboard('19075306551', '手机号已复制！')" class="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand-orange transition-all cursor-pointer">
+                    <div class="text-lg">📞</div>
+                    <div class="font-bold text-xs text-black dark:text-white mt-1">联系电话</div>
+                    <div class="text-[10px] text-gray-400 mt-1 truncate">19075306551</div>
+                </div>
+                <div onclick="copyToClipboard('ffjy1136', '微信号已复制！')" class="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand-orange transition-all cursor-pointer">
+                    <div class="text-lg">💬</div>
+                    <div class="font-bold text-xs text-black dark:text-white mt-1">微信号</div>
+                    <div class="text-[10px] text-gray-400 mt-1 truncate">ffjy1136</div>
+                </div>
+                <div onclick="copyToClipboard('1522642257@qq.com', '邮箱已复制！')" class="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand-orange transition-all cursor-pointer">
+                    <div class="text-lg">📧</div>
+                    <div class="font-bold text-xs text-black dark:text-white mt-1">电子邮箱</div>
+                    <div class="text-[10px] text-gray-400 mt-1 truncate">1522642257@qq.com</div>
+                </div>
+                <a href="https://github.com/faye1136" target="_blank" class="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand-orange transition-all block">
+                    <div class="text-lg">💻</div>
+                    <div class="font-bold text-xs text-black dark:text-white mt-1">GitHub</div>
+                    <div class="text-[10px] text-gray-400 mt-1 truncate">faye1136</div>
+                </a>
+            </div>
+
+            <!-- 极简留言框 -->
+            <div class="max-w-md mx-auto">
+                <div class="p-1.5 rounded-xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 flex items-center gap-2 shadow-sm">
+                    <input id="quick-msg" type="text" placeholder="给费韵璇发一条快速留言吧..." class="bg-transparent text-xs text-black dark:text-white px-3 py-1.5 flex-1 outline-none">
+                    <button onclick="submitMessage()" class="px-4 py-2 rounded-lg bg-black dark:bg-white text-white dark:text-black font-mono text-[10px] font-bold uppercase hover:bg-brand-orange hover:text-white transition-all shrink-0">
+                        SEND
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200 dark:border-zinc-800 text-[10px] font-mono text-gray-400">
+                <p>© 2026 费韵璇 Faye. CELESTIAL TRAVERSAL &amp; PARALLAX ENHANCED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================================
+         【AI+编程开发者专属沉浸式覆盖页】
+         ========================================================================= -->
+    <div id="ai-dev-overlay" class="overlay-screen is-hidden fixed inset-0 z-50 overflow-y-auto no-scrollbar scroll-smooth bg-[#08090C] text-white selection:bg-brand-cyanTech selection:text-black font-sans">
+        
+        <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+            <canvas id="ascii-matrix-canvas" class="w-full h-full block opacity-85"></canvas>
+            <div class="absolute inset-0 tech-grid-pattern opacity-40"></div>
+            <div class="absolute inset-0 cyber-scanlines"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#08090C] via-black/35 to-[#08090C]/90 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_25%,_#08090C_90%)] pointer-events-none"></div>
+        </div>
+
+        <div class="fixed top-5 left-5 sm:top-8 sm:left-8 z-50">
+            <button onclick="closeAiDevModal()" class="group px-4 py-2 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 text-white border border-cyan-400/60 hover:border-cyan-300 text-xs sm:text-sm font-semibold shadow-[0_0_20px_rgba(0,240,255,0.25)] hover:shadow-[0_0_28px_rgba(0,240,255,0.45)] backdrop-blur-xl transition-all duration-300 active:scale-95 flex items-center gap-1.5 cursor-pointer">
+                <span class="tracking-wide font-sans">返回简历</span>
+                <span class="text-cyan-400 font-mono text-xs sm:text-sm group-hover:-translate-x-0.5 transition-transform duration-200">＜</span>
+            </button>
+        </div>
+
+        <section class="relative z-10 w-full min-h-screen flex flex-col justify-between p-6 sm:p-10 snap-start">
+            <div class="w-full h-12"></div>
+
+            <div class="my-auto -translate-y-8 sm:-translate-y-12 max-w-5xl mx-auto px-4 sm:px-6 text-center select-none flex flex-col items-center justify-center">
+                <div class="flex flex-col items-center space-y-4 sm:space-y-6">
+                    <h1 class="cyber-vibrating-heading text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-black tracking-tight text-white leading-[1.08] drop-shadow-2xl">
+                        AI+编程开发者
+                    </h1>
+                    
+                    <div class="mt-2 sm:mt-4 inline-flex items-center justify-center px-5 sm:px-7 py-2 sm:py-2.5 border-[1.8px] border-[#00F0FF] rounded-xl sm:rounded-2xl bg-[#051821]/80 backdrop-blur-md shadow-[0_0_22px_rgba(0,240,255,0.32)]">
+                        <span class="font-jetbrains font-extrabold text-[12px] sm:text-[13px] md:text-[15px] tracking-[0.07em] sm:tracking-[0.09em] text-[#00F0FF] uppercase leading-none drop-shadow-[0_0_8px_rgba(0,240,255,0.65)]">
+                            PROMPT ARCHITECTURE &amp; FULL-STACK AGILITY
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full flex flex-col items-center justify-center select-none pb-6 cursor-pointer" onclick="scrollToAiDevSecondScreen()">
+                <div class="bounce-arrow text-cyan-400 hover:text-emerald-400 transition-colors flex flex-col items-center">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai-dev-screen-projects" class="relative z-10 w-full min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 lg:p-12 snap-start">
+            <div class="max-w-4xl w-full mx-auto flex flex-col items-center justify-center space-y-12 sm:space-y-16 py-10">
+
+                <!-- 画框 01：GEMINI DYNAMIC VISUAL WEBSITE -> AI1.png -->
+                <div class="relative w-full rounded-[28px] sm:rounded-[36px] bg-[#131417] border border-zinc-800/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-4 sm:p-7 md:p-8 transition-all duration-300 group overflow-hidden">
+                    <div class="absolute inset-0 rounded-[28px] sm:rounded-[36px] border border-white/[0.04] pointer-events-none"></div>
+
+                    <div onclick="openGlobalLightbox('AI1.png', 'Gemini+零前端代码基础 = 动态视觉网站 (AI1.png)')" class="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#181a1f] border border-zinc-800/80 shadow-[inset_0_2px_12px_rgba(0,0,0,0.6)] full-image-container cursor-zoom-in">
+                        <img 
+                            src="AI1.png" 
+                            alt="AI1.png - Gemini+零前端代码基础=动态视觉网站" 
+                            loading="lazy"
+                            class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                            onload="document.getElementById('ai1-placeholder-frame').style.display='none';"
+                            onerror="this.style.display='none'; document.getElementById('ai1-placeholder-frame').style.display='flex';"
+                        />
+                        <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-zinc-300 flex items-center gap-1.5 pointer-events-none z-20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                            <span>AI1.png · 点击全屏放大</span>
+                        </div>
+                        <div id="ai1-placeholder-frame" class="hidden absolute inset-0 w-full h-full flex-col justify-between bg-[#15161a] p-4 sm:p-6 select-none font-mono">
+                            <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+                                <span class="text-xs text-zinc-400 font-sans">AI1.png / 画面展示画框</span>
+                                <span class="font-mono text-xs text-brand-orange">AI1.png</span>
+                            </div>
+                            <div class="my-auto py-4 text-center space-y-2">
+                                <p class="text-sm text-zinc-300 font-bold">请将 AI1.png 放置在与 index.html 同级目录下</p>
+                                <p class="text-xs text-zinc-500 font-mono">Gemini+零前端代码基础=动态视觉网站</p>
+                            </div>
+                            <div class="text-[10px] text-zinc-600 border-t border-zinc-800/80 pt-2 flex justify-between">
+                                <span>STATUS: READY</span>
+                                <span>FULL DISPLAY (CONTAIN)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 sm:mt-6 md:mt-7 space-y-2.5 select-none text-left">
+                        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-[15px] text-[#9CA3AF] font-sans font-normal tracking-wide">
+                            <span class="leading-none">Gemini+零前端代码基础 = 动态视觉网站</span>
+                            <span class="text-zinc-600 font-light text-xs sm:text-sm">|</span>
+                            <span class="text-zinc-300 font-sans font-normal tracking-wide text-xs sm:text-sm">2026 . 3</span>
+                        </div>
+                        <div class="w-full pt-1 overflow-hidden">
+                            <svg class="full-width-title-svg" viewBox="0 0 1140 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <text x="0" y="80" fill="#FFFFFF" font-family="'Impact', 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="94" textLength="1140" lengthAdjust="spacingAndGlyphs">GEMINI DYNAMIC VISUAL WEBSITE</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 画框 02：PERSONAL AI EMPLOYEE -> AI2.png -->
+                <div class="relative w-full rounded-[28px] sm:rounded-[36px] bg-[#131417] border border-zinc-800/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-4 sm:p-7 md:p-8 transition-all duration-300 group overflow-hidden">
+                    <div class="absolute inset-0 rounded-[28px] sm:rounded-[36px] border border-white/[0.04] pointer-events-none"></div>
+
+                    <div onclick="openGlobalLightbox('AI2.png', '系统提示词学习 + 固定提示词 = 私人AI雇员 (AI2.png)')" class="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#181a1f] border border-zinc-800/80 shadow-[inset_0_2px_12px_rgba(0,0,0,0.6)] full-image-container cursor-zoom-in">
+                        <img 
+                            src="AI2.png" 
+                            alt="AI2.png - 系统提示词学习+固定提示词=私人AI雇员" 
+                            loading="lazy"
+                            class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                            onload="document.getElementById('ai2-placeholder-frame').style.display='none';"
+                            onerror="this.style.display='none'; document.getElementById('ai2-placeholder-frame').style.display='flex';"
+                        />
+                        <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-zinc-300 flex items-center gap-1.5 pointer-events-none z-20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                            <span>AI2.png · 点击全屏放大</span>
+                        </div>
+                        <div id="ai2-placeholder-frame" class="hidden absolute inset-0 w-full h-full flex-col justify-between bg-[#15161a] p-4 sm:p-6 select-none font-mono">
+                            <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+                                <span class="text-xs text-zinc-400 font-sans">AI2.png / 画面展示画框</span>
+                                <span class="font-mono text-xs text-brand-orange">AI2.png</span>
+                            </div>
+                            <div class="my-auto py-4 text-center space-y-2">
+                                <p class="text-sm text-zinc-300 font-bold">请将 AI2.png 放置在与 index.html 同级目录下</p>
+                                <p class="text-xs text-zinc-500 font-mono">系统提示词学习+固定提示词=私人AI雇员</p>
+                            </div>
+                            <div class="text-[10px] text-zinc-600 border-t border-zinc-800/80 pt-2 flex justify-between">
+                                <span>STATUS: READY</span>
+                                <span>FULL DISPLAY (CONTAIN)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 sm:mt-6 md:mt-7 space-y-2.5 select-none text-left">
+                        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-[15px] text-[#9CA3AF] font-sans font-normal tracking-wide">
+                            <span class="leading-none">系统提示词学习 + 固定提示词 = 私人AI雇员</span>
+                            <span class="text-zinc-600 font-light text-xs sm:text-sm">|</span>
+                            <span class="text-zinc-300 font-sans font-normal tracking-wide text-xs sm:text-sm">2025.12</span>
+                        </div>
+                        <div class="w-full pt-1 overflow-hidden">
+                            <svg class="full-width-title-svg" viewBox="0 0 1140 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <text x="0" y="80" fill="#FFFFFF" font-family="'Impact', 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="94">PERSONAL AI EMPLOYEE</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 画框 03：AUTOMATED WORKFLOW SYSTEM -> AI3.png -->
+                <div class="relative w-full rounded-[28px] sm:rounded-[36px] bg-[#131417] border border-zinc-800/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-4 sm:p-7 md:p-8 transition-all duration-300 group overflow-hidden">
+                    <div class="absolute inset-0 rounded-[28px] sm:rounded-[36px] border border-white/[0.04] pointer-events-none"></div>
+
+                    <div onclick="openGlobalLightbox('AI3.png', '自动工作流——每日自动化抓取信息，推送飞书 (AI3.png)')" class="relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#181a1f] border border-zinc-800/80 shadow-[inset_0_2px_12px_rgba(0,0,0,0.6)] full-image-container cursor-zoom-in">
+                        <img 
+                            src="AI3.png" 
+                            alt="AI3.png - 自动工作流" 
+                            loading="lazy"
+                            class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                            onload="document.getElementById('ai3-placeholder-frame').style.display='none';"
+                            onerror="this.style.display='none'; document.getElementById('ai3-placeholder-frame').style.display='flex';"
+                        />
+                        <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-zinc-300 flex items-center gap-1.5 pointer-events-none z-20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                            <span>AI3.png · 点击全屏放大</span>
+                        </div>
+                        <div id="ai3-placeholder-frame" class="hidden absolute inset-0 w-full h-full flex flex-col justify-between bg-[#15161a] p-4 sm:p-6 select-none font-mono">
+                            <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+                                <span class="text-xs text-zinc-400 font-sans">自动工作流 / 飞书推送引擎</span>
+                                <span class="font-mono text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">AGENT ONLINE</span>
+                            </div>
+                            <div class="my-auto py-2 text-center text-xs text-zinc-400">
+                                自动化资讯抓取与推送智能体，每日定时高效抓取指定官方高校与竞赛资讯并推送至飞书
+                            </div>
+                            <div class="text-[10px] text-zinc-600 border-t border-zinc-800/80 pt-2 flex justify-between">
+                                <span>STATUS: RUNNING</span>
+                                <span>PIPELINE: AUTOMATED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 sm:mt-6 md:mt-7 space-y-2.5 select-none text-left">
+                        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-[15px] text-[#9CA3AF] font-sans font-normal tracking-wide">
+                            <span class="leading-none">自动工作流——每日自动化抓取信息，推送飞书</span>
+                            <span class="text-zinc-600 font-light text-xs sm:text-sm">|</span>
+                            <span class="text-zinc-300 font-sans font-normal tracking-wide text-xs sm:text-sm">2025.9</span>
+                        </div>
+                        <div class="w-full pt-1 overflow-hidden">
+                            <svg class="full-width-title-svg" viewBox="0 0 1140 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <text x="0" y="80" fill="#FFFFFF" font-family="'Impact', 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="94" textLength="1140" lengthAdjust="spacingAndGlyphs">AUTOMATED WORKFLOW SYSTEM</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 画框 04：RST NATIONAL SECOND PRIZE -> AI4.png -->
+                <div class="relative w-full rounded-[28px] sm:rounded-[36px] bg-[#131417] border border-zinc-800/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-4 sm:p-7 md:p-8 transition-all duration-300 group overflow-hidden">
+                    <div class="absolute inset-0 rounded-[28px] sm:rounded-[36px] border border-white/[0.04] pointer-events-none"></div>
+
+                    <div onclick="openGlobalLightbox('AI4.png', '第十九届先进机器人及仿真技术大赛国家二等奖 (AI4.png)')" class="relative w-full aspect-[1.38/1] rounded-[20px] sm:rounded-[24px] overflow-hidden bg-[#181a1f] border border-zinc-800/80 shadow-[inset_0_2px_12px_rgba(0,0,0,0.6)] full-image-container cursor-zoom-in">
+                        <img 
+                            src="AI4.png" 
+                            alt="AI4.png - 第十九届先进机器人及仿真技术大赛国家二等奖" 
+                            loading="lazy"
+                            class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                            onload="document.getElementById('ai4-placeholder-frame').style.display='none';"
+                            onerror="this.style.display='none'; document.getElementById('ai4-placeholder-frame').style.display='flex';"
+                        />
+                        <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-zinc-300 flex items-center gap-1.5 pointer-events-none z-20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                            <span>AI4.png · 点击全屏放大</span>
+                        </div>
+                        <div id="ai4-placeholder-frame" class="hidden absolute inset-0 w-full h-full flex-col justify-between bg-[#15161a] p-4 sm:p-6 select-none font-mono">
+                            <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+                                <span class="text-xs text-zinc-400 font-sans">AI4.png / 画面展示画框</span>
+                                <span class="font-mono text-xs text-brand-orange">AI4.png</span>
+                            </div>
+                            <div class="my-auto py-4 text-center space-y-2">
+                                <p class="text-sm text-zinc-300 font-bold">请将 AI4.png 放置在与 index.html 同级目录下</p>
+                                <p class="text-xs text-zinc-500 font-mono">第十九届先进机器人及仿真技术大赛国家二等奖</p>
+                            </div>
+                            <div class="text-[10px] text-zinc-600 border-t border-zinc-800/80 pt-2 flex justify-between">
+                                <span>STATUS: READY</span>
+                                <span>FULL DISPLAY (CONTAIN)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 sm:mt-6 md:mt-7 space-y-2.5 select-none text-left">
+                        <div class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-[15px] text-[#9CA3AF] font-sans font-normal tracking-wide">
+                            <span class="leading-none">第十九届先进机器人及仿真技术大赛国家二等奖</span>
+                            <span class="text-zinc-600 font-light text-xs sm:text-sm">｜</span>
+                            <span class="text-zinc-300 font-sans font-normal tracking-wide text-xs sm:text-sm">2026.5</span>
+                        </div>
+                        <div class="w-full pt-1 overflow-hidden">
+                            <svg class="full-width-title-svg" viewBox="0 0 1140 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <text x="0" y="80" fill="#FFFFFF" font-family="'Impact', 'Arial Black', -apple-system, sans-serif" font-weight="900" font-size="94">RST NATIONAL SECOND PRIZE</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- =========================================================================
+         【PPT设计者专属沉浸式覆盖页（含全新 3D 弧形画廊）】
+         ========================================================================= -->
+    <div id="ppt-overlay" class="overlay-screen is-hidden fixed inset-0 z-50 overflow-y-auto no-scrollbar scroll-smooth bg-[#0e0c0e] text-white selection:bg-brand-orange selection:text-white font-sans">
+        
+        <!-- 背景固定高科技琥珀流光 Canvas -->
+        <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+            <canvas id="waves-lines-canvas" class="w-full h-full block"></canvas>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#090809] via-transparent to-[#120f12]/85"></div>
+        </div>
+
+        <!-- 悬浮“返回简历＜”琥珀橙金透明毛玻璃按钮 -->
+        <div class="fixed top-5 left-5 sm:top-8 sm:left-8 z-50">
+            <button onclick="closePptModal()" class="group px-4 py-2 rounded-full bg-amber-500/10 hover:bg-amber-500/20 text-white border border-amber-500/60 hover:border-amber-400 text-xs sm:text-sm font-semibold shadow-[0_0_18px_rgba(245,158,11,0.25)] hover:shadow-[0_0_24px_rgba(245,158,11,0.4)] backdrop-blur-xl transition-all duration-300 active:scale-95 flex items-center gap-1.5 cursor-pointer">
+                <span class="tracking-wide">返回简历</span>
+                <span class="text-amber-400 font-mono text-xs sm:text-sm group-hover:-translate-x-0.5 transition-transform duration-200">＜</span>
+            </button>
+        </div>
+
+        <!-- 画面第一幕：核心定位 -->
+        <section class="relative z-10 w-full min-h-screen flex flex-col justify-between p-6 sm:p-10 snap-start">
+            <div class="w-full h-12"></div>
+
+            <div class="my-auto max-w-5xl mx-auto px-4 sm:px-6 text-center select-none flex flex-col items-center justify-center space-y-6 sm:space-y-8">
+                <div class="font-mono text-xs sm:text-sm md:text-base tracking-[0.28em] sm:tracking-[0.35em] text-amber-200/85 uppercase font-medium">
+                    VISUAL DESIGN &amp; PRESENTATION
+                </div>
+
+                <h1 class="text-6xl sm:text-8xl md:text-9xl lg:text-[7.5rem] font-black tracking-tight text-white glow-title leading-[1.05] drop-shadow-2xl">
+                    PPT设计者
+                </h1>
+
+                <p class="text-sm sm:text-base md:text-xl text-gray-300/90 font-light leading-relaxed max-w-2xl px-2">
+                    侧重于竞赛PPT设计，正在积极学习其他行业的PPT
+                </p>
+            </div>
+
+            <!-- 底部滑动引导 -->
+            <div class="w-full flex flex-col items-center justify-center select-none pb-6 cursor-pointer" onclick="scrollToSecondScreen()">
+                <div class="bounce-arrow text-amber-400/80 hover:text-brand-orange transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================================
+             画面第二幕：精确还原图片1（点击整屏跳转呈现 3D 虚拟弧形轨道画廊）
+             ========================================================================= -->
+        <section id="ppt-screen-portfolio" onclick="openPpt3DGallery()" class="group relative z-10 w-full min-h-screen flex flex-col items-center justify-center p-6 sm:p-12 snap-start select-none cursor-pointer transition-colors duration-300 hover:bg-black/30">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center justify-center space-y-4 sm:space-y-5 transition-transform duration-500 group-hover:scale-[1.02]">
+                <h2 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black italic tracking-tight text-white drop-shadow-[0_0_35px_rgba(255,255,255,0.28)] font-sans">
+                    PPT作品集
+                </h2>
+
+                <div class="text-lg sm:text-2xl md:text-3xl font-black uppercase tracking-[0.14em] flex flex-wrap items-center justify-center gap-2 sm:gap-3 leading-none pt-1">
+                    <span class="text-white">INFINITE CANVAS</span>
+                    <span class="text-[#FF2D55] font-black">//</span>
+                    <span class="text-[#FF2D55] drop-shadow-[0_0_18px_rgba(255,45,85,0.55)]">PORTFOLIO</span>
+                </div>
+
+                <p class="text-xs sm:text-sm text-zinc-400/80 font-mono tracking-widest leading-relaxed pt-1">
+                    - 任意方向拖拽或滑动，点击图片放大 -
+                </p>
+
+                <div class="pt-6 sm:pt-8">
+                    <div class="bounce-arrow text-[#FF2D55] inline-flex items-center justify-center group-hover:scale-125 transition-transform">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 stroke-current drop-shadow-[0_0_12px_rgba(255,45,85,0.55)]" fill="none" stroke-width="2.8" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- =========================================================================
+         【点击图片1后弹出的 3D 虚拟圆弧轨道画廊全屏视窗 (ppt1.png ~ ppt5.png)】
+         ========================================================================= -->
+    <div id="ppt-arc-gallery-view" class="overlay-screen is-hidden fixed inset-0 z-[60] overflow-hidden bg-black/95 text-white selection:bg-brand-orange selection:text-white font-sans flex flex-col justify-between items-center py-6 sm:py-8 px-4 sm:px-8 select-none">
+        
+        <!-- 背景流光与微网格质感 -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+            <div class="absolute inset-0 tech-grid-pattern opacity-25"></div>
+            <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-amber-500/15 blur-[120px] rounded-full pointer-events-none"></div>
+        </div>
+
+        <!-- 顶栏：左侧返回按钮 & 右侧关闭按钮 -->
+        <div class="w-full max-w-5xl flex items-center justify-between z-20 pb-2">
+            <button onclick="closePpt3DGallery()" class="group px-4 py-2 rounded-full bg-white/10 hover:bg-amber-500/20 text-white border border-white/20 hover:border-amber-400 text-xs sm:text-sm font-semibold shadow-lg backdrop-blur-xl transition-all duration-300 active:scale-95 flex items-center gap-1.5 cursor-pointer">
+                <span class="tracking-wide">返回</span>
+                <span class="text-amber-400 font-mono text-xs sm:text-sm group-hover:-translate-x-0.5 transition-transform">＜</span>
+            </button>
+
+            <button onclick="closePpt3DGallery()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-zinc-300 hover:text-white text-sm transition-colors cursor-pointer">
+                ✕
+            </button>
+        </div>
+
+        <!-- 3D 弧形环绕旋转画廊舞台 (Stage) -->
+        <div class="w-full flex-1 flex items-center justify-center my-2 relative z-10">
+            <div id="gallery-3d-scene" class="gallery-3d-scene w-full max-w-[290px] sm:max-w-[390px] md:max-w-[500px] lg:max-w-[600px] h-[300px] sm:h-[360px] md:h-[420px] lg:h-[470px] relative flex items-center justify-center cursor-grab active:cursor-grabbing">
+                
+                <div id="gallery-3d-carousel" class="gallery-3d-carousel">
+                    
+                    <!-- 卡片 01：ppt1.png -->
+                    <div class="gallery-3d-card w-[250px] sm:w-[330px] md:w-[440px] lg:w-[530px] aspect-[16/10] -ml-[125px] sm:-ml-[165px] md:-ml-[220px] lg:-ml-[265px] -mt-[78px] sm:-mt-[103px] md:-mt-[137px] lg:-mt-[165px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl cursor-pointer bg-black" data-index="0" data-img="ppt1.png" data-title="ppt1.png">
+                        <div class="w-full h-full relative full-image-container group">
+                            <img 
+                                src="ppt1.png" 
+                                alt="ppt1.png" 
+                                loading="lazy" 
+                                class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            />
+                            <div class="hidden w-full h-full flex-col justify-center items-center p-4 bg-zinc-900/90 text-zinc-400 font-mono select-none">
+                                <span class="text-xs text-zinc-300 font-sans font-bold">ppt1.png</span>
+                                <span class="text-[10px] text-zinc-500 mt-1">请放置 ppt1.png 于同级目录</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 02：ppt2.png -->
+                    <div class="gallery-3d-card w-[250px] sm:w-[330px] md:w-[440px] lg:w-[530px] aspect-[16/10] -ml-[125px] sm:-ml-[165px] md:-ml-[220px] lg:-ml-[265px] -mt-[78px] sm:-mt-[103px] md:-mt-[137px] lg:-mt-[165px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl cursor-pointer bg-black" data-index="1" data-img="ppt2.png" data-title="ppt2.png">
+                        <div class="w-full h-full relative full-image-container group">
+                            <img 
+                                src="ppt2.png" 
+                                alt="ppt2.png" 
+                                loading="lazy" 
+                                class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            />
+                            <div class="hidden w-full h-full flex-col justify-center items-center p-4 bg-zinc-900/90 text-zinc-400 font-mono select-none">
+                                <span class="text-xs text-zinc-300 font-sans font-bold">ppt2.png</span>
+                                <span class="text-[10px] text-zinc-500 mt-1">请放置 ppt2.png 于同级目录</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 03：ppt3.png -->
+                    <div class="gallery-3d-card w-[250px] sm:w-[330px] md:w-[440px] lg:w-[530px] aspect-[16/10] -ml-[125px] sm:-ml-[165px] md:-ml-[220px] lg:-ml-[265px] -mt-[78px] sm:-mt-[103px] md:-mt-[137px] lg:-mt-[165px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl cursor-pointer bg-black" data-index="2" data-img="ppt3.png" data-title="ppt3.png">
+                        <div class="w-full h-full relative full-image-container group">
+                            <img 
+                                src="ppt3.png" 
+                                alt="ppt3.png" 
+                                loading="lazy" 
+                                class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            />
+                            <div class="hidden w-full h-full flex-col justify-center items-center p-4 bg-zinc-900/90 text-zinc-400 font-mono select-none">
+                                <span class="text-xs text-zinc-300 font-sans font-bold">ppt3.png</span>
+                                <span class="text-[10px] text-zinc-500 mt-1">请放置 ppt3.png 于同级目录</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 04：ppt4.png -->
+                    <div class="gallery-3d-card w-[250px] sm:w-[330px] md:w-[440px] lg:w-[530px] aspect-[16/10] -ml-[125px] sm:-ml-[165px] md:-ml-[220px] lg:-ml-[265px] -mt-[78px] sm:-mt-[103px] md:-mt-[137px] lg:-mt-[165px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl cursor-pointer bg-black" data-index="3" data-img="ppt4.png" data-title="ppt4.png">
+                        <div class="w-full h-full relative full-image-container group">
+                            <img 
+                                src="ppt4.png" 
+                                alt="ppt4.png" 
+                                loading="lazy" 
+                                class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            />
+                            <div class="hidden w-full h-full flex-col justify-center items-center p-4 bg-zinc-900/90 text-zinc-400 font-mono select-none">
+                                <span class="text-xs text-zinc-300 font-sans font-bold">ppt4.png</span>
+                                <span class="text-[10px] text-zinc-500 mt-1">请放置 ppt4.png 于同级目录</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 卡片 05：ppt5.png -->
+                    <div class="gallery-3d-card w-[250px] sm:w-[330px] md:w-[440px] lg:w-[530px] aspect-[16/10] -ml-[125px] sm:-ml-[165px] md:-ml-[220px] lg:-ml-[265px] -mt-[78px] sm:-mt-[103px] md:-mt-[137px] lg:-mt-[165px] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl cursor-pointer bg-black" data-index="4" data-img="ppt5.png" data-title="ppt5.png">
+                        <div class="w-full h-full relative full-image-container group">
+                            <img 
+                                src="ppt5.png" 
+                                alt="ppt5.png" 
+                                loading="lazy" 
+                                class="full-image-contained transition-transform duration-500 group-hover:scale-[1.02]"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            />
+                            <div class="hidden w-full h-full flex-col justify-center items-center p-4 bg-zinc-900/90 text-zinc-400 font-mono select-none">
+                                <span class="text-xs text-zinc-300 font-sans font-bold">ppt5.png</span>
+                                <span class="text-[10px] text-zinc-500 mt-1">请放置 ppt5.png 于同级目录</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部控制栏 -->
+        <div class="w-full max-w-lg mx-auto flex items-center justify-center z-20 pb-4">
+            <!-- 控制按钮组 -->
+            <div class="flex items-center justify-center gap-5">
+                <button onclick="rotateGalleryArc(-1)" class="w-10 h-10 rounded-full bg-white/10 hover:bg-amber-500/20 border border-white/15 hover:border-amber-400/50 flex items-center justify-center text-white text-base transition-all duration-200 active:scale-90" aria-label="上一张">
+                    ‹
+                </button>
+
+                <button onclick="rotateGalleryArc(1)" class="w-10 h-10 rounded-full bg-white/10 hover:bg-amber-500/20 border border-white/15 hover:border-amber-400/50 flex items-center justify-center text-white text-base transition-all duration-200 active:scale-90" aria-label="下一张">
+                    ›
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ==================== 1. 主题与通用交互 ==================== */
+        function initTheme() {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            document.getElementById('moon-icon').classList.remove('hidden');
+            document.getElementById('sun-icon').classList.add('hidden');
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const doc = document.documentElement;
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            
+            if (doc.classList.contains('dark')) {
+                doc.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                showToast("☀️ 已切换至极简明亮模式");
+            } else {
+                doc.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+                showToast("🌙 切换为极简暗黑模式");
+            }
+        });
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = "px-4 py-3 bg-black/90 dark:bg-white/95 text-white dark:text-black backdrop-blur-md rounded-xl text-xs font-mono font-bold shadow-2xl flex items-center gap-2 pointer-events-auto transition-all duration-300 translate-y-2 opacity-0 border border-zinc-800 dark:border-zinc-200";
+            toast.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping"></span><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-[-10px]', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        }
+
+        function copyToClipboard(text, msg) {
+            const temp = document.createElement('input');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast(msg);
+        }
+
+        function submitMessage() {
+            const input = document.getElementById('quick-msg');
+            const val = input.value.trim();
+            if(!val) {
+                showToast("⚠️ 还没输入文字呢！");
+                return;
+            }
+            showToast("🚀 留言成功！已向费韵璇发送了消息提示。");
+            input.value = '';
+        }
+
+        function toggleCertFlip(card) {
+            card.classList.toggle('is-flipped');
+        }
+
+        /* ==================== 2. 全局无遮挡大图查看器 (Lightbox) ==================== */
+        function openGlobalLightbox(imageSrc, caption) {
+            const lb = document.getElementById('global-image-lightbox');
+            const img = document.getElementById('global-lightbox-img');
+            const cap = document.getElementById('global-lightbox-caption');
+            const fn = document.getElementById('global-lightbox-filename');
+            if (!lb || !img) return;
+
+            img.src = imageSrc;
+            if (cap) cap.innerText = caption || imageSrc;
+            if (fn) fn.innerText = imageSrc;
+            lb.classList.remove('hidden');
+            lb.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGlobalLightbox() {
+            const lb = document.getElementById('global-image-lightbox');
+            if (!lb) return;
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+            
+            const aiDev = document.getElementById('ai-dev-overlay');
+            const ppt = document.getElementById('ppt-overlay');
+            if ((!aiDev || aiDev.classList.contains('is-hidden')) && (!ppt || ppt.classList.contains('is-hidden'))) {
+                document.body.style.overflow = '';
+            }
+        }
+
+        /* ==================== 3. AI+编程开发者覆盖页控制 ==================== */
+        const aiDevOverlay = document.getElementById('ai-dev-overlay');
+
+        function openAiDevModal() {
+            if (!aiDevOverlay) return;
+            aiDevOverlay.classList.remove('is-hidden');
+            aiDevOverlay.classList.add('is-visible');
+            aiDevOverlay.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            
+            initAsciiCanvas();
+            showToast("⚡ 已进入 AI+编程开发者全屏");
+        }
+
+        function closeAiDevModal() {
+            if (!aiDevOverlay) return;
+            aiDevOverlay.classList.remove('is-visible');
+            aiDevOverlay.classList.add('is-hidden');
+            document.body.style.overflow = '';
+            stopAsciiCanvas();
+        }
+
+        function scrollToAiDevSecondScreen() {
+            const target = document.getElementById('ai-dev-screen-projects');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /* ==================== 4. 赛博故障风 Canvas ==================== */
+        let asciiCanvas, asciiCtx;
+        let asciiAnimationId;
+        let asciiGrid = [];
+        let asciiCols = 0, asciiRows = 0;
+        let charWidth = 14, charHeight = 22;
+        
+        const GLITCH_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_/,{}[]()!@#$%^&*+-=<>;:?|~`";
+        const GLITCH_PALETTE = ['#00F0FF', '#10B981', '#06B6D4', '#38BDF8', '#2DD4BF', '#818CF8', '#1E3A5F', '#064E3B'];
+
+        function initAsciiCanvas() {
+            asciiCanvas = document.getElementById('ascii-matrix-canvas');
+            if (!asciiCanvas) return;
+            asciiCtx = asciiCanvas.getContext('2d');
+
+            const resizeAscii = () => {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                const rect = asciiCanvas.getBoundingClientRect();
+                asciiCanvas.width = rect.width * dpr;
+                asciiCanvas.height = rect.height * dpr;
+                asciiCtx.scale(dpr, dpr);
+
+                charWidth = window.innerWidth < 640 ? 11 : 13;
+                charHeight = window.innerWidth < 640 ? 18 : 20;
+                asciiCols = Math.ceil(rect.width / charWidth) + 1;
+                asciiRows = Math.ceil(rect.height / charHeight) + 1;
+
+                asciiGrid = [];
+                for (let y = 0; y < asciiRows; y++) {
+                    for (let x = 0; x < asciiCols; x++) {
+                        const randomChar = GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+                        const colorIdx = Math.floor(Math.random() * GLITCH_PALETTE.length);
+                        asciiGrid.push({
+                            x: x * charWidth,
+                            y: y * charHeight,
+                            char: randomChar,
+                            color: GLITCH_PALETTE[colorIdx],
+                            alpha: 0.18 + Math.random() * 0.72,
+                            changeInterval: Math.floor(Math.random() * 4) + 1,
+                            timer: Math.floor(Math.random() * 6)
+                        });
+                    }
+                }
+            };
+
+            resizeAscii();
+            window.addEventListener('resize', resizeAscii);
+
+            if (!asciiAnimationId) {
+                renderContinuousGlitch();
+            }
+        }
+
+        function stopAsciiCanvas() {
+            if (asciiAnimationId) {
+                cancelAnimationFrame(asciiAnimationId);
+                asciiAnimationId = null;
+            }
+        }
+
+        let glitchFrame = 0;
+        function renderContinuousGlitch() {
+            if (!asciiCanvas || !asciiCtx) return;
+            const w = asciiCanvas.getBoundingClientRect().width;
+            const h = asciiCanvas.getBoundingClientRect().height;
+
+            asciiCtx.clearRect(0, 0, w, h);
+            
+            const fontSize = window.innerWidth < 640 ? '11px' : '13px';
+            asciiCtx.font = `bold ${fontSize} "Space Grotesk", ui-monospace, Menlo, monospace`;
+            asciiCtx.textBaseline = 'top';
+
+            glitchFrame++;
+            const isWaveActive = (glitchFrame % 45 < 4);
+            const waveRowStart = isWaveActive ? Math.floor(Math.random() * asciiRows) : -1;
+
+            for (let i = 0; i < asciiGrid.length; i++) {
+                const node = asciiGrid[i];
+                node.timer++;
+
+                if (node.timer >= node.changeInterval) {
+                    node.timer = 0;
+                    node.char = GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+                    if (Math.random() < 0.2) {
+                        node.color = GLITCH_PALETTE[Math.floor(Math.random() * GLITCH_PALETTE.length)];
+                        node.alpha = 0.25 + Math.random() * 0.75;
+                    }
+                    node.changeInterval = Math.floor(Math.random() * 5) + 1;
+                }
+
+                const currentRow = Math.floor(i / asciiCols);
+                let currentAlpha = node.alpha;
+                let currentColor = node.color;
+
+                if (isWaveActive && Math.abs(currentRow - waveRowStart) <= 1) {
+                    currentColor = '#00F0FF';
+                    currentAlpha = 1;
+                }
+
+                asciiCtx.globalAlpha = currentAlpha;
+                asciiCtx.fillStyle = currentColor;
+                asciiCtx.fillText(node.char, node.x, node.y);
+            }
+
+            asciiAnimationId = requestAnimationFrame(renderContinuousGlitch);
+        }
+
+        /* ==================== 5. PPT 设计者覆盖页控制 ==================== */
+        const pptOverlay = document.getElementById('ppt-overlay');
+        const pptArcGalleryView = document.getElementById('ppt-arc-gallery-view');
+
+        function openPptModal() {
+            if (!pptOverlay) return;
+            pptOverlay.classList.remove('is-hidden');
+            pptOverlay.classList.add('is-visible');
+            pptOverlay.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            
+            initWavesCanvas();
+            showToast("✨ 已进入 PPT 设计者页面");
+        }
+
+        function closePptModal() {
+            if (pptArcGalleryView && pptArcGalleryView.classList.contains('is-visible')) {
+                closePpt3DGallery();
+            }
+            if (!pptOverlay) return;
+            pptOverlay.classList.remove('is-visible');
+            pptOverlay.classList.add('is-hidden');
+            document.body.style.overflow = '';
+            stopWavesCanvas();
+            stop3DArcGalleryAuto();
+        }
+
+        function scrollToSecondScreen() {
+            const screen2 = document.getElementById('ppt-screen-portfolio');
+            if (screen2) {
+                screen2.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /* 打开 3D 虚拟弧形轨道画廊 */
+        function openPpt3DGallery() {
+            if (!pptArcGalleryView) return;
+            pptArcGalleryView.classList.remove('is-hidden');
+            pptArcGalleryView.classList.add('is-visible');
+            init3DArcGallery();
+            spinGalleryArc();
+        }
+
+        /* 关闭 3D 虚拟弧形轨道画廊，返回第二页 */
+        function closePpt3DGallery() {
+            if (!pptArcGalleryView) return;
+            pptArcGalleryView.classList.remove('is-visible');
+            pptArcGalleryView.classList.add('is-hidden');
+            stop3DArcGalleryAuto();
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const globalLb = document.getElementById('global-image-lightbox');
+                if (globalLb && !globalLb.classList.contains('hidden')) {
+                    closeGlobalLightbox();
+                    return;
+                }
+                if (pptArcGalleryView && pptArcGalleryView.classList.contains('is-visible')) {
+                    closePpt3DGallery();
+                    return;
+                }
+                if (aiDevOverlay && aiDevOverlay.classList.contains('is-visible')) {
+                    closeAiDevModal();
+                    return;
+                }
+                if (pptOverlay && pptOverlay.classList.contains('is-visible')) {
+                    closePptModal();
+                }
+            }
+        });
+
+        /* ==================== 6. 琥珀发光波浪线 Canvas 动效 ==================== */
+        let wavesCanvas, wavesCtx;
+        let wavesAnimationId;
+        let wavesStep = 0;
+
+        function initWavesCanvas() {
+            wavesCanvas = document.getElementById('waves-lines-canvas');
+            if (!wavesCanvas) return;
+            wavesCtx = wavesCanvas.getContext('2d');
+
+            const resizeWaves = () => {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                wavesCanvas.width = window.innerWidth * dpr;
+                wavesCanvas.height = window.innerHeight * dpr;
+                wavesCtx.scale(dpr, dpr);
+            };
+
+            resizeWaves();
+            window.addEventListener('resize', resizeWaves);
+
+            if (!wavesAnimationId) {
+                renderWaves();
+            }
+        }
+
+        function stopWavesCanvas() {
+            if (wavesAnimationId) {
+                cancelAnimationFrame(wavesAnimationId);
+                wavesAnimationId = null;
+            }
+        }
+
+        function renderWaves() {
+            if (!wavesCanvas || !wavesCtx) return;
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            wavesCtx.clearRect(0, 0, width, height);
+            wavesStep += 0.012;
+
+            const totalLines = 28;
+            const centerY = height * 0.46;
+
+            for (let i = 0; i < totalLines; i++) {
+                wavesCtx.beginPath();
+                const progress = i / totalLines;
+                const phase = wavesStep + progress * 1.5;
+                
+                const alpha = Math.sin(progress * Math.PI) * 0.65;
+                wavesCtx.strokeStyle = `rgba(255, ${160 + Math.floor(progress * 70)}, ${80 + Math.floor(progress * 120)}, ${alpha})`;
+                wavesCtx.lineWidth = 1.2 + (1 - Math.abs(progress - 0.5) * 2) * 1.8;
+
+                const pointsCount = 40;
+                for (let j = 0; j <= pointsCount; j++) {
+                    const x = (width / pointsCount) * j;
+                    const wave1 = Math.sin(x * 0.0022 + phase) * 75;
+                    const wave2 = Math.cos(x * 0.0012 - phase * 0.7) * 45;
+                    const wave3 = Math.sin((x + phase * 100) * 0.004) * 25;
+                    
+                    const spread = (progress - 0.5) * 110;
+                    const y = centerY + wave1 + wave2 + wave3 + spread;
+
+                    if (j === 0) {
+                        wavesCtx.moveTo(x, y);
+                    } else {
+                        wavesCtx.lineTo(x, y);
+                    }
+                }
+                wavesCtx.stroke();
+            }
+
+            wavesAnimationId = requestAnimationFrame(renderWaves);
+        }
+
+        /* =========================================================================
+           7. 【全新核心】3D 弧形环绕画廊系统 (3D Arc Carousel Gallery)
+           ========================================================================= */
+        const arcGallery = {
+            totalCards: 5,
+            currentIndex: 0,
+            currentRotation: 0,
+            targetRotation: 0,
+            angleStep: 360 / 5, // 72度
+            radius: 280,
+            isDragging: false,
+            startX: 0,
+            lastX: 0,
+            velocity: 0,
+            autoSpin: true,
+            autoSpinTimer: null,
+            titles: [
+                "01 // 竞赛答辩商业化视觉方案 (ppt1.png)",
+                "02 // 技术路线与实验架构图解 (ppt2.png)",
+                "03 // 核心竞争力与多维数据图表 (ppt3.png)",
+                "04 // 行业应用案例与成果推演 (ppt4.png)",
+                "05 // 团队配置与发展里程碑 (ppt5.png)"
+            ]
+        };
+
+        function getArcRadius() {
+            if (window.innerWidth < 640) {
+                return 220; // 手机端紧凑而富有景深的轨道半径
+            } else if (window.innerWidth < 1024) {
+                return 310; // 平板端
+            } else {
+                return 400; // 宽屏端
+            }
+        }
+
+        function layout3DGalleryCards() {
+            const carousel = document.getElementById('gallery-3d-carousel');
+            if (!carousel) return;
+
+            const cards = carousel.querySelectorAll('.gallery-3d-card');
+            arcGallery.radius = getArcRadius();
+
+            cards.forEach((card, index) => {
+                const angle = index * arcGallery.angleStep;
+                // 每个卡片按弧形向外辐射排布
+                card.style.transform = `rotateY(${angle}deg) translateZ(${arcGallery.radius}px)`;
+            });
+
+            updateGalleryVisuals();
+        }
+
+        function updateGalleryVisuals() {
+            const carousel = document.getElementById('gallery-3d-carousel');
+            if (!carousel) return;
+
+            carousel.style.transform = `rotateY(${arcGallery.currentRotation}deg)`;
+
+            // 计算当前处于正前方的卡片索引
+            // 正前方意味着 (angle + currentRotation) % 360 接近 0 或 360
+            let normalizedRotation = (-arcGallery.currentRotation) % 360;
+            if (normalizedRotation < 0) normalizedRotation += 360;
+            
+            const activeIndex = Math.round(normalizedRotation / arcGallery.angleStep) % arcGallery.totalCards;
+            arcGallery.currentIndex = activeIndex;
+
+            const cards = carousel.querySelectorAll('.gallery-3d-card');
+            cards.forEach((card, idx) => {
+                if (idx === activeIndex) {
+                    card.classList.add('is-active-card');
+                    card.style.opacity = '1';
+                    card.style.filter = 'brightness(1.1) saturate(1.1)';
+                } else {
+                    card.classList.remove('is-active-card');
+                    // 距离正前方越远，透明度与亮度递减
+                    card.style.opacity = '0.55';
+                    card.style.filter = 'brightness(0.7) blur(0.5px)';
+                }
+            });
+        }
+
+        function rotateGalleryArc(direction) {
+            resetGalleryAutoSpinTimer();
+            arcGallery.targetRotation -= direction * arcGallery.angleStep;
+            animateGalleryToTarget();
+        }
+
+        function goToGalleryIndex(index) {
+            resetGalleryAutoSpinTimer();
+            // 计算旋转到目标索引所需的最短角度
+            const currentNorm = ((-arcGallery.targetRotation) % 360 + 360) % 360;
+            const targetAngle = index * arcGallery.angleStep;
+            let diff = targetAngle - currentNorm;
+            if (diff > 180) diff -= 360;
+            if (diff < -180) diff += 360;
+
+            arcGallery.targetRotation -= diff;
+            animateGalleryToTarget();
+        }
+
+        function spinGalleryArc() {
+            resetGalleryAutoSpinTimer();
+            arcGallery.targetRotation -= 360;
+            animateGalleryToTarget();
+        }
+
+        let galleryAnimFrame = null;
+        function animateGalleryToTarget() {
+            if (galleryAnimFrame) cancelAnimationFrame(galleryAnimFrame);
+
+            const step = () => {
+                const diff = arcGallery.targetRotation - arcGallery.currentRotation;
+                if (Math.abs(diff) > 0.15) {
+                    arcGallery.currentRotation += diff * 0.14;
+                    updateGalleryVisuals();
+                    galleryAnimFrame = requestAnimationFrame(step);
+                } else {
+                    arcGallery.currentRotation = arcGallery.targetRotation;
+                    updateGalleryVisuals();
+                    galleryAnimFrame = null;
+                }
+            };
+            step();
+        }
+
+        function toggleGalleryAutoSpin() {
+            arcGallery.autoSpin = !arcGallery.autoSpin;
+            const btn = document.getElementById('gallery-auto-btn');
+            if (btn) {
+                btn.innerText = arcGallery.autoSpin ? "AUTO: ON" : "AUTO: OFF";
+                btn.className = arcGallery.autoSpin 
+                    ? "ml-2 px-3 py-2 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-mono text-[10px] font-bold tracking-wider transition-all"
+                    : "ml-2 px-3 py-2 rounded-full bg-white/10 text-zinc-400 border border-white/15 font-mono text-[10px] font-bold tracking-wider transition-all";
+            }
+            if (arcGallery.autoSpin) {
+                start3DArcGalleryAuto();
+                showToast("▶ 3D 弧形画廊自动巡回开启");
+            } else {
+                stop3DArcGalleryAuto();
+                showToast("⏸ 已暂停自动旋转");
+            }
+        }
+
+        function start3DArcGalleryAuto() {
+            stop3DArcGalleryAuto();
+            if (!arcGallery.autoSpin) return;
+            arcGallery.autoSpinTimer = setInterval(() => {
+                if (!arcGallery.isDragging) {
+                    arcGallery.targetRotation -= arcGallery.angleStep;
+                    animateGalleryToTarget();
+                }
+            }, 3600);
+        }
+
+        function stop3DArcGalleryAuto() {
+            if (arcGallery.autoSpinTimer) {
+                clearInterval(arcGallery.autoSpinTimer);
+                arcGallery.autoSpinTimer = null;
+            }
+        }
+
+        function resetGalleryAutoSpinTimer() {
+            if (arcGallery.autoSpin) {
+                start3DArcGalleryAuto();
+            }
+        }
+
+        function init3DArcGallery() {
+            const scene = document.getElementById('gallery-3d-scene');
+            const carousel = document.getElementById('gallery-3d-carousel');
+            if (!scene || !carousel) return;
+
+            layout3DGalleryCards();
+            window.addEventListener('resize', layout3DGalleryCards);
+
+            // 触摸与鼠标水平拖动逻辑
+            const onDragStart = (clientX) => {
+                arcGallery.isDragging = true;
+                arcGallery.startX = clientX;
+                arcGallery.lastX = clientX;
+                arcGallery.velocity = 0;
+                carousel.classList.add('is-dragging');
+                if (galleryAnimFrame) cancelAnimationFrame(galleryAnimFrame);
+            };
+
+            const onDragMove = (clientX) => {
+                if (!arcGallery.isDragging) return;
+                const delta = clientX - arcGallery.lastX;
+                arcGallery.velocity = delta;
+                arcGallery.lastX = clientX;
+
+                // 拖动灵敏度适中
+                arcGallery.currentRotation += delta * 0.35;
+                arcGallery.targetRotation = arcGallery.currentRotation;
+                updateGalleryVisuals();
+            };
+
+            const onDragEnd = () => {
+                if (!arcGallery.isDragging) return;
+                arcGallery.isDragging = false;
+                carousel.classList.remove('is-dragging');
+
+                // 惯性吸附到最近的卡片轨道上
+                const step = arcGallery.angleStep;
+                arcGallery.targetRotation = Math.round(arcGallery.currentRotation / step) * step;
+                animateGalleryToTarget();
+                resetGalleryAutoSpinTimer();
+            };
+
+            // 鼠标事件绑定
+            scene.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                onDragStart(e.clientX);
+            });
+            window.addEventListener('mousemove', (e) => {
+                if (arcGallery.isDragging) onDragMove(e.clientX);
+            });
+            window.addEventListener('mouseup', () => {
+                if (arcGallery.isDragging) onDragEnd();
+            });
+
+            // 移动端触摸事件绑定
+            scene.addEventListener('touchstart', (e) => {
+                if (e.touches && e.touches.length > 0) {
+                    onDragStart(e.touches[0].clientX);
+                }
+            }, { passive: true });
+
+            scene.addEventListener('touchmove', (e) => {
+                if (e.touches && e.touches.length > 0) {
+                    onDragMove(e.touches[0].clientX);
+                }
+            }, { passive: true });
+
+            scene.addEventListener('touchend', () => {
+                onDragEnd();
+            });
+
+            // 卡片独立点击响应：若是正前方卡片则打开全屏查看器；若非正前方卡片则旋转至前台
+            const cards = carousel.querySelectorAll('.gallery-3d-card');
+            cards.forEach((card) => {
+                card.addEventListener('click', (e) => {
+                    const idx = parseInt(card.getAttribute('data-index'), 10);
+                    const img = card.getAttribute('data-img');
+                    const title = card.getAttribute('data-title');
+
+                    if (idx === arcGallery.currentIndex) {
+                        openGlobalLightbox(img, title);
+                    } else {
+                        goToGalleryIndex(idx);
+                    }
+                });
+            });
+
+            start3DArcGalleryAuto();
+        }
+
+        /* ==================== 8. AI 编程实战互动效果 ==================== */
+        const RANDOM_POP_IMAGES = [
+            { src: 'AI1.png', title: 'Gemini+零前端代码基础 = 动态视觉网站 (AI1.png)' },
+            { src: 'AI2.png', title: '系统提示词学习 + 固定提示词 = 私人AI雇员 (AI2.png)' },
+            { src: 'AI3.png', title: '自动工作流——每日自动化抓取信息，推送飞书 (AI3.png)' },
+            { src: 'AI4.png', title: '第十九届先进机器人及仿真技术大赛国家二等奖 (AI4.png)' }
+        ];
+
+        function initProjectInteractiveRows() {
+            const rows = document.querySelectorAll('.project-interactive-row');
+            
+            rows.forEach((row) => {
+                const imgEl = row.querySelector('.pop-dynamic-img');
+                const tagEl = row.querySelector('.pop-fallback-tag');
+
+                const pickRandomImage = () => {
+                    const picked = RANDOM_POP_IMAGES[Math.floor(Math.random() * RANDOM_POP_IMAGES.length)];
+                    if (imgEl) {
+                        imgEl.src = picked.src;
+                        imgEl.alt = picked.src;
+                        imgEl.style.display = 'block';
+                        const fallback = imgEl.nextElementSibling;
+                        if (fallback) fallback.style.display = 'none';
+                    }
+                    if (tagEl) {
+                        tagEl.innerText = picked.src;
+                    }
+                    row.dataset.currentImg = picked.src;
+                    row.dataset.currentCaption = picked.title;
+                };
+
+                row.addEventListener('click', () => {
+                    const imgSrc = row.dataset.currentImg || 'AI1.png';
+                    const caption = row.dataset.currentCaption || 'AI 实操作品展示';
+                    openGlobalLightbox(imgSrc, caption);
+                });
+
+                const updatePos = (clientX, clientY) => {
+                    const rect = row.getBoundingClientRect();
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
+                    
+                    const clampX = Math.max(rect.width * 0.2, Math.min(rect.width * 0.8, x));
+                    const clampY = Math.max(rect.height * 0.15, Math.min(rect.height * 0.85, y));
+                    const rot = -4.5 + ((clampX / rect.width) - 0.5) * 6;
+
+                    row.style.setProperty('--touch-x', `${clampX}px`);
+                    row.style.setProperty('--touch-y', `${clampY}px`);
+                    row.style.setProperty('--rot-angle', `${rot.toFixed(1)}deg`);
+                };
+
+                row.addEventListener('mouseenter', (e) => {
+                    pickRandomImage();
+                    updatePos(e.clientX, e.clientY);
+                });
+
+                row.addEventListener('mousemove', (e) => {
+                    updatePos(e.clientX, e.clientY);
+                });
+
+                row.addEventListener('touchstart', (e) => {
+                    if (e.touches && e.touches.length > 0) {
+                        rows.forEach(r => r !== row && r.classList.remove('active'));
+                        row.classList.add('active');
+                        pickRandomImage();
+                        updatePos(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+
+                row.addEventListener('touchmove', (e) => {
+                    if (e.touches && e.touches.length > 0) {
+                        updatePos(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+            });
+
+            document.addEventListener('touchstart', (e) => {
+                if (!e.target.closest('.project-interactive-row')) {
+                    rows.forEach(r => r.classList.remove('active'));
+                }
+            }, { passive: true });
+        }
+
+        /* ==================== 9. 天体水平移动与跨卡片穿梭 ==================== */
+        let celestialState = {
+            targetProgress: 0.15,
+            currentProgress: 0.15,
+            isAutoOrbit: true,
+            autoSpeed: 0.0018,
+            autoDirection: 1,
+            isUserInteracting: false
+        };
+
+        const dawnSun = document.getElementById('body-dawn-sun');
+        const sunsetSun = document.getElementById('body-sunset-sun');
+        const nightMoon = document.getElementById('body-night-moon');
+        const stageEl = document.getElementById('celestial-stage');
+
+        function updateCelestialPositions() {
+            const p = celestialState.currentProgress;
+            
+            if (dawnSun) {
+                const dx1 = (p - 0.15) * 480;
+                const dy1 = Math.sin((p) * Math.PI) * 110;
+                const op1 = Math.max(0, Math.min(1, 1 - (p - 0.25) * 3));
+                dawnSun.style.transform = `translate3d(${dx1}px, ${dy1}px, 0)`;
+                dawnSun.style.opacity = op1.toFixed(3);
+            }
+
+            if (sunsetSun) {
+                const dx2 = (p - 0.5) * 380;
+                const dy2 = (p - 0.5) * 120 + Math.sin(p * Math.PI * 1.5) * 20;
+                const distToCenter = Math.abs(p - 0.5);
+                const op2 = Math.max(0, Math.min(1, 1.2 - distToCenter * 2.8));
+                sunsetSun.style.transform = `translate3d(${dx2}px, ${dy2}px, 0)`;
+                sunsetSun.style.opacity = op2.toFixed(3);
+            }
+
+            if (nightMoon) {
+                const dx3 = (p - 0.85) * 440;
+                const dy3 = -Math.sin((p - 0.3) * Math.PI * 0.75) * 70;
+                const op3 = Math.max(0, Math.min(1, (p - 0.38) * 2.6));
+                nightMoon.style.transform = `translate3d(${dx3}px, ${dy3}px, 0)`;
+                nightMoon.style.opacity = op3.toFixed(3);
+            }
+        }
+
+        function celestialLoop() {
+            if (celestialState.isAutoOrbit && !celestialState.isUserInteracting) {
+                celestialState.targetProgress += celestialState.autoSpeed * celestialState.autoDirection;
+                if (celestialState.targetProgress >= 1) {
+                    celestialState.targetProgress = 1;
+                    celestialState.autoDirection = -1;
+                } else if (celestialState.targetProgress <= 0) {
+                    celestialState.targetProgress = 0;
+                    celestialState.autoDirection = 1;
+                }
+            }
+
+            celestialState.currentProgress += (celestialState.targetProgress - celestialState.currentProgress) * 0.08;
+            updateCelestialPositions();
+
+            requestAnimationFrame(celestialLoop);
+        }
+
+        function toggleAutoOrbit() {
+            celestialState.isAutoOrbit = !celestialState.isAutoOrbit;
+            const btnText = document.getElementById('orbit-btn-text');
+            const dot = document.getElementById('orbit-status-dot');
+            if (celestialState.isAutoOrbit) {
+                btnText.innerText = '漫游模式: 开启';
+                dot.className = 'inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1';
+                showToast('✨ 天体自动跨卡片漫游已恢复');
+            } else {
+                btnText.innerText = '漫游模式: 暂停';
+                dot.className = 'inline-block w-1.5 h-1.5 rounded-full bg-zinc-400 mr-1';
+                showToast('✋ 已切换为手动视差控制');
+            }
+        }
+
+        function initCelestialInteraction() {
+            if (!stageEl) return;
+
+            stageEl.addEventListener('mousemove', (e) => {
+                celestialState.isUserInteracting = true;
+                const rect = stageEl.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                celestialState.targetProgress = Math.max(0, Math.min(1, x / rect.width));
+            });
+
+            stageEl.addEventListener('mouseleave', () => {
+                celestialState.isUserInteracting = false;
+            });
+
+            stageEl.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    celestialState.isUserInteracting = true;
+                    const rect = stageEl.getBoundingClientRect();
+                    const x = e.touches[0].clientX - rect.left;
+                    celestialState.targetProgress = Math.max(0, Math.min(1, x / rect.width));
+                }
+            }, { passive: true });
+
+            stageEl.addEventListener('touchend', () => {
+                celestialState.isUserInteracting = false;
+            });
+        }
+
+        /* ==================== 9. 统一初始化入口 ==================== */
+        window.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initProjectInteractiveRows();
+            initCelestialInteraction();
+            celestialLoop();
+        });
+    </script>
+</body>
+</html>
